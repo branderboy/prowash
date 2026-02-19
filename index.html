@@ -725,6 +725,379 @@
             }
         }
 
+        /* --- APP PROCESS / PHONE MOCKUPS --- */
+        .app-process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .phone-frame {
+            width: 240px;
+            margin: 0 auto 25px;
+            background: #111;
+            border-radius: 32px;
+            padding: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25), inset 0 0 0 2px #333;
+            position: relative;
+        }
+
+        .phone-frame::before {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            margin: 0 auto 10px;
+        }
+
+        .phone-screen {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 380px;
+            position: relative;
+        }
+
+        .phone-screen-header {
+            background: var(--primary-navy);
+            padding: 18px 16px 14px;
+            color: white;
+            text-align: center;
+        }
+
+        .phone-screen-header h4 {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin: 0;
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .phone-screen-header .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            color: var(--highlight-gold);
+            letter-spacing: 1px;
+        }
+
+        .phone-screen-body {
+            padding: 16px;
+        }
+
+        /* Dashboard screen */
+        .dash-greeting {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 2px;
+        }
+        .dash-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-bottom: 14px;
+        }
+        .dash-stat-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .dash-stat-box {
+            flex: 1;
+            background: #f0f7ff;
+            border-radius: 10px;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        .dash-stat-val {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            line-height: 1;
+        }
+        .dash-stat-label {
+            font-size: 0.6rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        .dash-tier-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .dash-progress-wrap {
+            margin-top: 10px;
+        }
+        .dash-progress-label {
+            font-size: 0.7rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .dash-progress-bar {
+            height: 8px;
+            background: #e8e8e8;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .dash-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--action-green), #2ecc71);
+        }
+
+        /* Stamp card screen */
+        .stamp-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .stamp-slot {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #bbb;
+            background: #fafafa;
+        }
+        .stamp-slot.filled {
+            border: 2px solid var(--action-green);
+            background: #e8f8ef;
+            color: var(--action-green);
+        }
+        .stamp-slot.free-wash {
+            border: 2px solid var(--highlight-gold);
+            background: #fff8e1;
+            color: var(--highlight-gold);
+            font-weight: 800;
+            font-size: 0.55rem;
+            text-align: center;
+            line-height: 1.1;
+        }
+        .stamp-message {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--action-green);
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Referral screen */
+        .referral-code-box {
+            background: var(--primary-navy);
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .referral-code-label {
+            font-size: 0.6rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .referral-code-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            color: var(--highlight-gold);
+            letter-spacing: 3px;
+            margin-top: 4px;
+        }
+        .referral-share-btn {
+            display: block;
+            background: var(--action-green);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .referral-stat-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+        .referral-stat {
+            text-align: center;
+        }
+        .referral-stat-val {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+        }
+        .referral-stat-label {
+            font-size: 0.55rem;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        /* Streak screen */
+        .streak-hero {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .streak-flame {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+        .streak-count {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+            font-family: 'Oswald', sans-serif;
+        }
+        .streak-subtitle {
+            font-size: 0.7rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .streak-week-row {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin: 14px 0 10px;
+        }
+        .streak-week-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            color: #bbb;
+            font-weight: 700;
+        }
+        .streak-week-dot.active {
+            background: var(--action-green);
+            color: white;
+        }
+        .streak-week-dot.current {
+            background: var(--highlight-gold);
+            color: white;
+            box-shadow: 0 0 0 3px rgba(243,156,18,0.3);
+        }
+        .streak-bonus-box {
+            background: #fff8e1;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            margin-top: 10px;
+            border: 1px solid #ffe082;
+        }
+        .streak-bonus-text {
+            font-size: 0.7rem;
+            color: #e67e22;
+            font-weight: 700;
+        }
+
+        /* Notification screen */
+        .notif-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .notif-item:last-child { border-bottom: none; }
+        .notif-icon-circle {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: white;
+        }
+        .notif-icon-green { background: var(--action-green); }
+        .notif-icon-gold { background: var(--highlight-gold); }
+        .notif-icon-blue { background: var(--accent-blue); }
+        .notif-icon-red { background: #e74c3c; }
+        .notif-text {
+            font-size: 0.75rem;
+            color: #444;
+            line-height: 1.4;
+        }
+        .notif-text strong {
+            display: block;
+            color: var(--primary-navy);
+            font-size: 0.8rem;
+        }
+        .notif-time {
+            font-size: 0.6rem;
+            color: #bbb;
+            margin-top: 2px;
+        }
+
+        .process-step-label {
+            text-align: center;
+        }
+        .process-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--highlight-gold);
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .process-step-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .process-step-desc {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .app-process-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .phone-frame {
+                width: 220px;
+            }
+        }
+
         /* --- MOBILE STICKY --- */
         .sticky-mobile-cta {
             display: none;
@@ -853,6 +1226,260 @@
                         <li>Sends them a "We Miss You" deal automatically</li>
                         <li>Runs by itself — no work needed from you</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSIDE THE APP — WHAT CUSTOMERS SEE -->
+    <section class="section-pad bg-light">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 class="text-navy" style="font-size: 2.8rem; margin-bottom: 15px;">Inside the App — <span style="color: var(--action-green);">What Your Customers See</span></h2>
+                <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 20px; color: var(--text-grey);">This is the actual experience your customers get. Your brand, your colors, your car wash — right on their phone.</p>
+            </div>
+
+            <!-- Row 1: Dashboard + Stamp Card + Referral -->
+            <div class="app-process-grid fade-in">
+
+                <!-- Screen 1: Dashboard -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-screen-header">
+                                <div class="brand-name">PROWASH</div>
+                                <h4 style="color: #aed6f1; font-size: 0.7rem; margin-top: 2px;">Loyalty Rewards</h4>
+                            </div>
+                            <div class="phone-screen-body">
+                                <div class="dash-greeting">Welcome back,</div>
+                                <div class="dash-name">Marcus J.</div>
+                                <div class="dash-tier-badge">Gold Member</div>
+                                <div class="dash-stat-row">
+                                    <div class="dash-stat-box">
+                                        <div class="dash-stat-val">1,240</div>
+                                        <div class="dash-stat-label">Points</div>
+                                    </div>
+                                    <div class="dash-stat-box">
+                                        <div class="dash-stat-val">7/10</div>
+                                        <div class="dash-stat-label">Stamps</div>
+                                    </div>
+                                    <div class="dash-stat-box">
+                                        <div class="dash-stat-val" style="color: #e67e22;">4 wk</div>
+                                        <div class="dash-stat-label">Streak</div>
+                                    </div>
+                                </div>
+                                <div class="dash-progress-wrap">
+                                    <div class="dash-progress-label">
+                                        <span>Next reward</span>
+                                        <span style="font-weight:700; color: var(--action-green);">1,240 / 1,500</span>
+                                    </div>
+                                    <div class="dash-progress-bar">
+                                        <div class="dash-progress-fill" style="width: 83%;"></div>
+                                    </div>
+                                </div>
+                                <div class="dash-progress-wrap" style="margin-top: 8px;">
+                                    <div class="dash-progress-label">
+                                        <span>Free wash in</span>
+                                        <span style="font-weight:700; color: var(--accent-blue);">3 more stamps</span>
+                                    </div>
+                                    <div class="dash-progress-bar">
+                                        <div class="dash-progress-fill" style="width: 70%; background: linear-gradient(90deg, var(--accent-blue), #5dade2);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step-label">
+                        <div class="process-step-number">1</div>
+                        <h3 class="process-step-title">Customer Opens the App</h3>
+                        <p class="process-step-desc">They see their points, stamps, streak, and how close they are to the next free wash — all at a glance.</p>
+                    </div>
+                </div>
+
+                <!-- Screen 2: Stamp Card -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-screen-header">
+                                <div class="brand-name">PROWASH</div>
+                                <h4 style="color: #aed6f1; font-size: 0.7rem; margin-top: 2px;">Stamp Card</h4>
+                            </div>
+                            <div class="phone-screen-body">
+                                <div style="text-align:center; margin-bottom: 8px;">
+                                    <div style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px;">Your Progress</div>
+                                    <div style="font-size: 1.6rem; font-weight: 800; color: var(--primary-navy); font-family: 'Oswald', sans-serif;">7 of 10 Washes</div>
+                                </div>
+                                <div class="stamp-grid">
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot filled"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                                    <div class="stamp-slot">8</div>
+                                    <div class="stamp-slot">9</div>
+                                    <div class="stamp-slot free-wash">FREE WASH</div>
+                                </div>
+                                <div class="stamp-message">3 more washes to go!</div>
+                                <div style="margin-top: 14px; background: #f0f7ff; border-radius: 8px; padding: 10px; text-align: center;">
+                                    <div style="font-size: 0.65rem; color: #888; text-transform: uppercase;">Last wash</div>
+                                    <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary-navy);">ProWash MLK Blvd — Feb 15</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step-label">
+                        <div class="process-step-number">2</div>
+                        <h3 class="process-step-title">They Track Their Stamps</h3>
+                        <p class="process-step-desc">Visual stamp card fills up with every wash. They see exactly how close they are to a free one.</p>
+                    </div>
+                </div>
+
+                <!-- Screen 3: Referrals -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-screen-header">
+                                <div class="brand-name">PROWASH</div>
+                                <h4 style="color: #aed6f1; font-size: 0.7rem; margin-top: 2px;">Refer a Friend</h4>
+                            </div>
+                            <div class="phone-screen-body">
+                                <div style="text-align: center; margin-bottom: 6px;">
+                                    <div style="font-size: 0.75rem; color: #888;">Share your code and you <strong>both</strong> get rewarded</div>
+                                </div>
+                                <div class="referral-code-box">
+                                    <div class="referral-code-label">Your referral code</div>
+                                    <div class="referral-code-value">MARCUS10</div>
+                                </div>
+                                <div class="referral-share-btn">Share with Friends</div>
+                                <div class="referral-stat-row">
+                                    <div class="referral-stat">
+                                        <div class="referral-stat-val">3</div>
+                                        <div class="referral-stat-label">Friends Joined</div>
+                                    </div>
+                                    <div class="referral-stat">
+                                        <div class="referral-stat-val">150</div>
+                                        <div class="referral-stat-label">Bonus Points</div>
+                                    </div>
+                                    <div class="referral-stat">
+                                        <div class="referral-stat-val">$45</div>
+                                        <div class="referral-stat-label">Saved</div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 12px; font-size: 0.65rem; color: #999; text-align: center;">Each friend gets 100 bonus points when they sign up</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step-label">
+                        <div class="process-step-number">3</div>
+                        <h3 class="process-step-title">They Invite Their Friends</h3>
+                        <p class="process-step-desc">One tap to share their code. Their friend signs up, both get rewarded. Free marketing for you.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 2: Streaks + Notifications -->
+            <div class="app-process-grid fade-in" style="margin-top: 50px; max-width: 680px; margin-left: auto; margin-right: auto;">
+
+                <!-- Screen 4: Wash Streaks -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-screen-header">
+                                <div class="brand-name">PROWASH</div>
+                                <h4 style="color: #aed6f1; font-size: 0.7rem; margin-top: 2px;">Wash Streak</h4>
+                            </div>
+                            <div class="phone-screen-body">
+                                <div class="streak-hero">
+                                    <div class="streak-flame">&#128293;</div>
+                                    <div class="streak-count">4 Weeks</div>
+                                    <div class="streak-subtitle">Consecutive Wash Streak</div>
+                                </div>
+                                <div class="streak-week-row">
+                                    <div class="streak-week-dot active">W1</div>
+                                    <div class="streak-week-dot active">W2</div>
+                                    <div class="streak-week-dot active">W3</div>
+                                    <div class="streak-week-dot current">W4</div>
+                                    <div class="streak-week-dot">W5</div>
+                                    <div class="streak-week-dot">W6</div>
+                                    <div class="streak-week-dot">W7</div>
+                                    <div class="streak-week-dot">W8</div>
+                                </div>
+                                <div class="streak-bonus-box">
+                                    <div class="streak-bonus-text">&#127942; Hit 8 weeks = 500 bonus points!</div>
+                                </div>
+                                <div style="margin-top: 12px; background: #f0f7ff; border-radius: 8px; padding: 10px; text-align: center;">
+                                    <div style="font-size: 0.65rem; color: #888; text-transform: uppercase;">Next wash by</div>
+                                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary-navy);">Sunday, Feb 22 to keep streak</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step-label">
+                        <div class="process-step-number">4</div>
+                        <h3 class="process-step-title">Streaks Keep Them Hooked</h3>
+                        <p class="process-step-desc">Nobody wants to break a 4-week streak. This is what turns "I'll go sometime" into "I'm going this week."</p>
+                    </div>
+                </div>
+
+                <!-- Screen 5: Notifications -->
+                <div>
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <div class="phone-screen-header">
+                                <div class="brand-name">PROWASH</div>
+                                <h4 style="color: #aed6f1; font-size: 0.7rem; margin-top: 2px;">Notifications</h4>
+                            </div>
+                            <div class="phone-screen-body">
+                                <div class="notif-item">
+                                    <div class="notif-icon-circle notif-icon-green">&#10003;</div>
+                                    <div class="notif-text">
+                                        <strong>Wash Logged!</strong>
+                                        +50 points earned at ProWash MLK Blvd
+                                        <div class="notif-time">Just now</div>
+                                    </div>
+                                </div>
+                                <div class="notif-item">
+                                    <div class="notif-icon-circle notif-icon-gold">&#128293;</div>
+                                    <div class="notif-text">
+                                        <strong>Streak Alert!</strong>
+                                        Don't break your 4-week streak — wash by Sunday
+                                        <div class="notif-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="notif-item">
+                                    <div class="notif-icon-circle notif-icon-blue">&#127873;</div>
+                                    <div class="notif-text">
+                                        <strong>Friend Joined!</strong>
+                                        DeShawn used your code. You earned 50 bonus points
+                                        <div class="notif-time">Yesterday</div>
+                                    </div>
+                                </div>
+                                <div class="notif-item">
+                                    <div class="notif-icon-circle notif-icon-red">&#9888;</div>
+                                    <div class="notif-text">
+                                        <strong>Rainy Day Deal</strong>
+                                        Get a $5 wash this weekend — rain special
+                                        <div class="notif-time">2 days ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step-label">
+                        <div class="process-step-number">5</div>
+                        <h3 class="process-step-title">You Stay in Their Pocket</h3>
+                        <p class="process-step-desc">Points earned, streak reminders, friend joined, rainy day deals — you're always top of mind.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center fade-in" style="margin-top: 60px;">
+                <div class="callout-box" style="max-width: 750px; margin: 0 auto; border-left-color: var(--primary-navy);">
+                    <strong>This is what Lamond's customers will see every time they open the app.</strong> Your brand. Your locations. Their rewards. It's not just a loyalty program — it's your car wash living on their phone 24/7.
                 </div>
             </div>
         </div>
