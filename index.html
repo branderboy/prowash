@@ -625,6 +625,106 @@
             to { transform: rotate(360deg); }
         }
 
+        /* --- WALKTHROUGH STEPS --- */
+        .walkthrough-steps {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .walk-step {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .walk-step:last-child {
+            border-bottom: none;
+        }
+
+        .walk-step-number {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            background: var(--primary-navy);
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .walk-step-content {
+            flex: 1;
+        }
+
+        .walk-step-title {
+            font-size: 1.3rem;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .walk-step-desc {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .walk-step-highlight {
+            background: #f8fdf9;
+            margin: 0 -25px;
+            padding: 30px 25px;
+            border-radius: 12px;
+            border: 2px solid #d5f5e3;
+            border-bottom: 2px solid #d5f5e3;
+        }
+
+        .walk-step-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 18px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+            .walk-step {
+                gap: 15px;
+            }
+            .walk-step-number {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                font-size: 1.1rem;
+            }
+            .walk-step-highlight {
+                margin: 0 -10px;
+                padding: 20px 15px;
+            }
+        }
+
         /* --- MOBILE STICKY --- */
         .sticky-mobile-cta {
             display: none;
@@ -753,6 +853,95 @@
                         <li>Sends them a "We Miss You" deal automatically</li>
                         <li>Runs by itself — no work needed from you</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW A SALE WORKS — WALKTHROUGH -->
+    <section class="section-pad bg-white">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 class="text-navy" style="font-size: 2.8rem; margin-bottom: 15px;">See It In Action</h2>
+                <p style="font-size: 1.4rem; max-width: 750px; margin: 0 auto 60px; color: var(--text-grey);">Here's exactly what happens at one of your locations when a customer comes in for a wash.</p>
+            </div>
+
+            <!-- Step-by-step walkthrough -->
+            <div class="walkthrough-steps fade-in">
+
+                <!-- Step 1 -->
+                <div class="walk-step">
+                    <div class="walk-step-number">1</div>
+                    <div class="walk-step-content">
+                        <h3 class="walk-step-title">Customer Pulls Up and Gets Their Wash</h3>
+                        <p class="walk-step-desc">Business as usual. Nothing changes about how you run your wash. The customer gets their car cleaned like they always do.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="walk-step">
+                    <div class="walk-step-number">2</div>
+                    <div class="walk-step-content">
+                        <h3 class="walk-step-title">They Come to the Register to Pay</h3>
+                        <p class="walk-step-desc">Your staff rings them up the normal way — cash, card, whatever. The payment stays on your existing system. Nothing new here.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="walk-step walk-step-highlight">
+                    <div class="walk-step-number" style="background: var(--action-green);">3</div>
+                    <div class="walk-step-content">
+                        <h3 class="walk-step-title">Staff Asks: <span style="color: var(--action-green);">"Are You a Rewards Member?"</span></h3>
+                        <p class="walk-step-desc">This is the only new step. One question. If the customer isn't signed up yet, staff helps them join in 30 seconds — just a name and phone number.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="walk-step">
+                    <div class="walk-step-number">4</div>
+                    <div class="walk-step-content">
+                        <h3 class="walk-step-title">Staff Looks Them Up and Taps "Log Wash"</h3>
+                        <p class="walk-step-desc">On the staff tablet or phone, they pull up the customer by name or phone number and tap one button. That's it. Takes 5 seconds.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="walk-step walk-step-highlight">
+                    <div class="walk-step-number" style="background: var(--highlight-gold);">5</div>
+                    <div class="walk-step-content">
+                        <h3 class="walk-step-title">The Customer's App Lights Up Instantly</h3>
+                        <p class="walk-step-desc">Points earned. Stamp collected. Streak continued. The customer sees it all right on their phone. They see they're 3 stamps away from a free wash — and they're already thinking about coming back.</p>
+                        <div class="walk-step-preview">
+                            <div class="preview-item">
+                                <svg style="width:20px;height:20px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="var(--action-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>+50 points earned</span>
+                            </div>
+                            <div class="preview-item">
+                                <svg style="width:20px;height:20px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="var(--action-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Stamp 7 of 10 collected</span>
+                            </div>
+                            <div class="preview-item">
+                                <svg style="width:20px;height:20px;flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="var(--action-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>4-week streak — keep it going!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="walk-step">
+                    <div class="walk-step-number">6</div>
+                    <div class="walk-step-content">
+                        <h3 class="walk-step-title">Customer Walks Out Thinking About Their Next Wash</h3>
+                        <p class="walk-step-desc">They're not just a one-time visit anymore. They've got points building, a stamp card filling up, and a streak they don't want to break. They're coming back — and they're coming back to <em>you</em>.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center fade-in" style="margin-top: 60px;">
+                <div class="callout-box" style="max-width: 700px; margin: 0 auto; border-left-color: var(--action-green);">
+                    <strong>The whole thing adds about 10 seconds to each transaction.</strong> Your staff asks one question and taps one button. That's it. Everything else — the points, the stamps, the streaks, the notifications — happens automatically.
                 </div>
             </div>
         </div>
