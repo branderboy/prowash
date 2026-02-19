@@ -1137,14 +1137,14 @@
         .admin-tools-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 30px;
             position: relative;
         }
         .admin-tool-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 36px 30px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 48px 36px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -1170,13 +1170,17 @@
             opacity: 1;
         }
         .admin-tool-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+        }
+        .admin-tool-icon svg {
+            width: 36px;
+            height: 36px;
         }
         .admin-tool-icon.gold { background: rgba(243,156,18,0.15); color: var(--highlight-gold); }
         .admin-tool-icon.green { background: rgba(40,180,99,0.15); color: var(--action-green); }
@@ -1184,28 +1188,25 @@
         .admin-tool-icon.white { background: rgba(255,255,255,0.1); color: white; }
         .admin-tool-card h4 {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             color: white;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .admin-tool-card p {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* --- PRICING 2-COL --- */
         .pricing-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 30px;
             margin-top: 50px;
-            max-width: 820px;
-            margin-left: auto;
-            margin-right: auto;
         }
         .pricing-col {
             background: white;
@@ -1821,8 +1822,8 @@
         <div class="container">
             <div class="admin-tools-header fade-in">
                 <div class="label-badge">Lamond's Back Office</div>
-                <h2 style="color: white; font-size: 2.8rem; margin-bottom: 10px;">Admin & Management Tools</h2>
-                <p style="color: rgba(255,255,255,0.6); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Everything you need to run ProWash rewards from one place.</p>
+                <h2 style="color: white; font-size: 3.2rem; margin-bottom: 14px;">Admin & Management Tools</h2>
+                <p style="color: rgba(255,255,255,0.6); font-size: 1.3rem; max-width: 650px; margin: 0 auto;">Everything you need to run ProWash rewards from one place.</p>
             </div>
 
             <div class="admin-tools-grid fade-in">
