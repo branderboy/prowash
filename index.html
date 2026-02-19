@@ -580,6 +580,50 @@
             color: #555;
             line-height: 1.4;
         }
+        .form-input:focus, .form-select:focus {
+            border-color: var(--accent-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52,152,219,0.15);
+        }
+        .form-input.invalid, .form-select.invalid {
+            border-color: #e74c3c;
+        }
+        .form-message {
+            text-align: center;
+            padding: 40px;
+        }
+        .form-message-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--action-green);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        #submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .btn-loading::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+            border: 2px solid transparent;
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
         /* --- MOBILE STICKY --- */
         .sticky-mobile-cta {
@@ -1039,20 +1083,26 @@
             <p style="color: white; max-width: 700px; margin: 0 auto 40px; font-size: 1.3rem;">Secure your development slot. No payment required today.</p>
             
             <div class="activation-form">
-                <form action="mailto:que@tagglefish.com" method="post" enctype="text/plain">
+                <form id="activation-form" action="https://formsubmit.co/que@tagglefish.com" method="POST">
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New ProWash Project Activation">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+
                     <div class="form-group">
-                        <label class="form-label">Full Name</label>
-                        <input type="text" class="form-input" placeholder="Enter your name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="Enter your email" required>
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" name="name" id="name" class="form-input" placeholder="Enter your name" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Select Your Package</label>
-                        <select class="form-select">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" name="email" id="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="package">Select Your Package</label>
+                        <select name="package" id="package" class="form-select">
                             <option value="PWA-Growth">Option A: PWA Growth ($1,950)</option>
                             <option value="PWA-Scale">Option A: PWA Scale ($2,750)</option>
                             <option value="Native-Growth">Option B: Native Growth ($3,499)</option>
@@ -1061,14 +1111,29 @@
                     </div>
 
                     <div class="form-checkbox-wrapper">
-                        <input type="checkbox" class="form-checkbox" id="terms" required>
+                        <input type="checkbox" class="form-checkbox" id="terms" name="terms_agreed" value="yes" required>
                         <label for="terms" class="form-checkbox-label">
                             <strong>I agree to the terms.</strong> I understand that no payment is due today. I agree to pay the full development fee selected above upon completion of the initial Phase 1 test phase.
                         </label>
                     </div>
 
-                    <button type="submit" class="btn" style="width: 100%; border:none;">ACTIVATE PROJECT - $0 DOWN</button>
+                    <button type="submit" id="submit-btn" class="btn" style="width: 100%; border:none;">ACTIVATE PROJECT - $0 DOWN</button>
                 </form>
+
+                <!-- Success message (hidden by default) -->
+                <div id="form-success" class="form-message" style="display:none;">
+                    <div class="form-message-icon">&#10003;</div>
+                    <h3 style="color: var(--primary-navy); margin-bottom: 10px;">Project Activation Received!</h3>
+                    <p style="color: var(--text-grey);">Thank you! We've received your activation request. A confirmation email will be sent to you shortly. Our team will reach out within 24 hours to get started.</p>
+                </div>
+
+                <!-- Error message (hidden by default) -->
+                <div id="form-error" class="form-message" style="display:none;">
+                    <div class="form-message-icon" style="background: #e74c3c;">!</div>
+                    <h3 style="color: var(--primary-navy); margin-bottom: 10px;">Something Went Wrong</h3>
+                    <p style="color: var(--text-grey);">We couldn't submit your request. Please try again or email us directly at <a href="mailto:que@tagglefish.com" style="color: var(--accent-blue);">que@tagglefish.com</a>.</p>
+                    <button onclick="document.getElementById('form-error').style.display='none'; document.getElementById('activation-form').style.display='block';" class="btn" style="margin-top:15px; border:none; font-size:0.9rem; padding:12px 30px;">TRY AGAIN</button>
+                </div>
             </div>
             
             <p style="color: #7f8c8d; font-size: 0.9rem; margin-top: 30px; text-transform: uppercase; letter-spacing: 1px;">0% Down to Start. Invoice sent after Phase 1 testing.</p>
@@ -1113,6 +1178,82 @@
 
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Form submission handler
+        const form = document.getElementById('activation-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('form-success');
+        const errorMsg = document.getElementById('form-error');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate required fields
+            const name = form.querySelector('#name');
+            const email = form.querySelector('#email');
+            const terms = form.querySelector('#terms');
+            let valid = true;
+
+            [name, email].forEach(function(input) {
+                input.classList.remove('invalid');
+                if (!input.value.trim()) {
+                    input.classList.add('invalid');
+                    valid = false;
+                }
+            });
+
+            if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.classList.add('invalid');
+                valid = false;
+            }
+
+            if (!terms.checked) {
+                valid = false;
+                terms.parentElement.style.borderColor = '#e74c3c';
+            } else {
+                terms.parentElement.style.borderColor = '#eee';
+            }
+
+            if (!valid) return;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SUBMITTING';
+            submitBtn.classList.add('btn-loading');
+
+            // Submit via fetch
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(function(response) {
+                if (response.ok || response.status === 200) {
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(function() {
+                form.style.display = 'none';
+                errorMsg.style.display = 'block';
+            })
+            .finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'ACTIVATE PROJECT - $0 DOWN';
+                submitBtn.classList.remove('btn-loading');
+            });
+        });
+
+        // Clear invalid styling on input
+        form.querySelectorAll('.form-input, .form-select').forEach(function(input) {
+            input.addEventListener('input', function() {
+                this.classList.remove('invalid');
+            });
         });
     </script>
 </body>
