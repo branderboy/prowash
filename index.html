@@ -1098,6 +1098,187 @@
             }
         }
 
+        /* --- ADMIN & MANAGEMENT TOOLS --- */
+        .admin-tools-section {
+            background: linear-gradient(135deg, #0e2a47 0%, #1a3a5c 50%, #0e2a47 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .admin-tools-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(243,156,18,0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(52,152,219,0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .admin-tools-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .admin-tools-header .label-badge {
+            display: inline-block;
+            background: rgba(243,156,18,0.15);
+            color: var(--highlight-gold);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(243,156,18,0.3);
+            margin-bottom: 20px;
+        }
+        .admin-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+        .admin-tool-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 36px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .admin-tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--highlight-gold), var(--action-green));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .admin-tool-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+            border-color: rgba(243,156,18,0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .admin-tool-card:hover::before {
+            opacity: 1;
+        }
+        .admin-tool-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .admin-tool-icon.gold { background: rgba(243,156,18,0.15); color: var(--highlight-gold); }
+        .admin-tool-icon.green { background: rgba(40,180,99,0.15); color: var(--action-green); }
+        .admin-tool-icon.blue { background: rgba(52,152,219,0.15); color: var(--accent-blue); }
+        .admin-tool-icon.white { background: rgba(255,255,255,0.1); color: white; }
+        .admin-tool-card h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .admin-tool-card p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* --- PRICING 2-COL --- */
+        .pricing-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .pricing-col {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s;
+        }
+        .pricing-col:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-float);
+        }
+        .pricing-col-header {
+            padding: 35px 30px;
+            text-align: center;
+            color: white;
+        }
+        .pricing-col-header.dark { background: var(--text-dark); }
+        .pricing-col-header.navy { background: var(--primary-navy); }
+        .pricing-col-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+        .pricing-col-header p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+        }
+        .pricing-col-body {
+            padding: 35px 30px;
+        }
+        .pricing-tier {
+            margin-bottom: 28px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .pricing-tier:last-of-type {
+            border-bottom: none;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+        }
+        .pricing-tier-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .pricing-tier-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            color: var(--primary-navy);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        .pricing-tier-sub {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 14px;
+        }
+        .pricing-col-body .check-list li {
+            font-size: 0.92rem;
+            padding: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .admin-tools-grid {
+                grid-template-columns: 1fr;
+            }
+            .pricing-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* --- MOBILE STICKY --- */
         .sticky-mobile-cta {
             display: none;
@@ -1625,37 +1806,55 @@
                 </div>
             </div>
 
-             <!-- Feature 6, 7, 8, 9 Summary Block -->
-             <div class="feature-row fade-in" style="display: block; text-align: center; margin-top: 80px;">
-                <h2 class="text-navy" style="margin-bottom: 50px; font-size: 2.5rem;">Your Control Panel</h2>
-                <div class="icon-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
-                    <div>
-                        <!-- Trophy SVG -->
-                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10"/><path d="M17 4v8a5 5 0 0 1-10 0V4"/><path d="M5 9v2a2 2 0 0 0 2 2"/><path d="M19 9v2a2 2 0 0 1-2 2"/></svg></div>
-                        <h4>Loyalty Tiers</h4>
-                        <p style="font-size: 0.95rem;">Bronze, Silver, Gold. Reward your biggest spenders.</p>
-                    </div>
-                    <div>
-                        <!-- Map Pin SVG -->
-                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                        <h4>All Your Locations</h4>
-                        <p style="font-size: 0.95rem;">All 4-5 ProWash locations. Earn and redeem at any spot.</p>
-                    </div>
-                    <div>
-                        <!-- Bell SVG -->
-                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-                        <h4>Push Notifications</h4>
-                        <p style="font-size: 0.95rem;">Deals, rainy-day alerts, birthday bonuses. Straight to their phone.</p>
-                    </div>
-                    <div>
-                        <!-- Bar Chart SVG -->
-                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
-                        <h4>Stats Dashboard</h4>
-                        <p style="font-size: 0.95rem;">Visits, points, revenue. All locations, real time.</p>
-                    </div>
-                </div>
+             <!-- Admin & Management Tools -->
+             <div class="fade-in" style="margin-top: 100px;">
              </div>
 
+        </div>
+    </section>
+
+    <!-- ADMIN & MANAGEMENT TOOLS -->
+    <section class="section-pad admin-tools-section">
+        <div class="container">
+            <div class="admin-tools-header fade-in">
+                <div class="label-badge">Lamond's Back Office</div>
+                <h2 style="color: white; font-size: 2.8rem; margin-bottom: 10px;">Admin & Management Tools</h2>
+                <p style="color: rgba(255,255,255,0.6); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Everything you need to run ProWash rewards from one place.</p>
+            </div>
+
+            <div class="admin-tools-grid fade-in">
+                <div class="admin-tool-card">
+                    <div class="admin-tool-icon gold">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10"/><path d="M17 4v8a5 5 0 0 1-10 0V4"/><path d="M5 9v2a2 2 0 0 0 2 2"/><path d="M19 9v2a2 2 0 0 1-2 2"/></svg>
+                    </div>
+                    <h4>Tier Management</h4>
+                    <p>Structure Bronze, Silver, Gold levels to incentivize higher spend.</p>
+                </div>
+
+                <div class="admin-tool-card">
+                    <div class="admin-tool-icon green">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h4>Multi-Location Ready</h4>
+                    <p>Seamlessly works across all ProWash locations.</p>
+                </div>
+
+                <div class="admin-tool-card">
+                    <div class="admin-tool-icon blue">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
+                    <h4>Push Notification Suite</h4>
+                    <p>Send promos, weather alerts, and birthday bonuses instantly.</p>
+                </div>
+
+                <div class="admin-tool-card">
+                    <div class="admin-tool-icon white">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+                    </div>
+                    <h4>Analytics Dashboard</h4>
+                    <p>Track visits, points redeemed, and ROI in real-time.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1728,69 +1927,55 @@
             <h2 class="text-center text-navy" style="font-size: 3rem;">Pick Your Plan, Lamond</h2>
             <p class="text-center" style="font-size: 1.3rem; max-width: 650px; margin: 0 auto;">Same loyalty experience for customers. The difference is app type and owner control level.</p>
 
-            <div class="pricing-container fade-in">
+            <div class="pricing-2col fade-in">
 
-                <!-- PWA CARD -->
-                <div class="price-card">
-                    <div class="recommended-badge">Best Way to Start</div>
-                    <div class="price-header">
-                        <h3 style="margin-bottom: 5px; font-size: 2rem;">Progressive Web App</h3>
-                        <p style="font-size: 0.95rem; margin-bottom: 0; color: #ccc;">No download. Customers scan a QR code and it works instantly.</p>
+                <!-- LEFT: Progressive Web App -->
+                <div class="pricing-col" style="position: relative;">
+                    <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--action-green); color: white; font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; padding: 6px 20px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;">Best Way to Start</div>
+                    <div class="pricing-col-header dark">
+                        <h3>Progressive Web App</h3>
+                        <p>No download. QR code scan and it works.</p>
                     </div>
-                    <div class="price-body">
-                        <!-- PWA Growth -->
-                        <div class="tier-block">
-                            <div class="tier-name">
-                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                                GROWTH
-                            </div>
-                            <div class="tier-price">$1,950</div>
-                            <p class="tier-sub">One-time build fee</p>
-                            <ul class="check-list" style="margin-top: 20px;">
+                    <div class="pricing-col-body">
+                        <div class="pricing-tier">
+                            <div class="pricing-tier-label">Growth</div>
+                            <div class="pricing-tier-price">$1,950</div>
+                            <div class="pricing-tier-sub">One-time build fee</div>
+                            <ul class="check-list">
                                 <li>Full loyalty system (points, stamps, rewards)</li>
                                 <li>Works across all your locations</li>
                                 <li><strong>Simple Dashboard</strong> to view customers, adjust rewards</li>
                                 <li>QR code check-in at each location</li>
                             </ul>
                         </div>
-
-                        <!-- PWA Scale -->
-                        <div class="tier-block">
-                            <div class="tier-name">
-                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
-                                SCALE
-                            </div>
-                            <div class="tier-price">$2,750</div>
-                            <p class="tier-sub">One-time build fee</p>
-                            <ul class="check-list" style="margin-top: 20px;">
+                        <div class="pricing-tier">
+                            <div class="pricing-tier-label">Scale</div>
+                            <div class="pricing-tier-price">$2,750</div>
+                            <div class="pricing-tier-sub">One-time build fee</div>
+                            <ul class="check-list">
                                 <li><strong>Everything in Growth, plus:</strong></li>
-                                <li><strong>Full Owner's Dashboard</strong> with analytics, reports, per-location insights</li>
+                                <li>Full Owner's Dashboard with analytics + per-location insights</li>
                                 <li>Staff management per location</li>
                                 <li>Google Review Booster</li>
-                                <li>Smart customer targeting & promotions</li>
+                                <li>Smart targeting & promotions</li>
                             </ul>
                         </div>
-
                         <a href="#contact" class="btn" style="width: 100%; padding: 18px; font-size: 1.2rem;">Select PWA Plan</a>
                     </div>
                 </div>
 
-                <!-- NATIVE CARD -->
-                <div class="price-card">
-                    <div class="price-header blue">
-                        <h3 style="margin-bottom: 5px; font-size: 2rem;">Native Mobile App</h3>
-                        <p style="font-size: 0.95rem; margin-bottom: 0; color: #aed6f1;">"ProWash" on the App Store and Google Play under your brand</p>
+                <!-- RIGHT: Native Mobile App -->
+                <div class="pricing-col">
+                    <div class="pricing-col-header navy">
+                        <h3>Native Mobile App</h3>
+                        <p>"ProWash" on the App Store & Google Play</p>
                     </div>
-                    <div class="price-body">
-                        <!-- Native Growth -->
-                        <div class="tier-block">
-                            <div class="tier-name">
-                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                                GROWTH
-                            </div>
-                            <div class="tier-price">$3,499</div>
-                            <p class="tier-sub">One-time build fee</p>
-                            <ul class="check-list" style="margin-top: 20px;">
+                    <div class="pricing-col-body">
+                        <div class="pricing-tier">
+                            <div class="pricing-tier-label">Growth</div>
+                            <div class="pricing-tier-price">$3,499</div>
+                            <div class="pricing-tier-sub">One-time build fee</div>
+                            <ul class="check-list">
                                 <li>Full loyalty system (points, stamps, rewards)</li>
                                 <li>Works across all your locations</li>
                                 <li><strong>Simple Dashboard</strong> to view customers, adjust rewards</li>
@@ -1798,54 +1983,22 @@
                                 <li>Listed on both App Stores under your brand</li>
                             </ul>
                         </div>
-
-                        <!-- Native Scale -->
-                        <div class="tier-block">
-                            <div class="tier-name">
-                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
-                                SCALE
-                            </div>
-                            <div class="tier-price">$4,750</div>
-                            <p class="tier-sub">One-time build fee</p>
-                            <ul class="check-list" style="margin-top: 20px;">
+                        <div class="pricing-tier">
+                            <div class="pricing-tier-label">Scale</div>
+                            <div class="pricing-tier-price">$4,750</div>
+                            <div class="pricing-tier-sub">One-time build fee</div>
+                            <ul class="check-list">
                                 <li><strong>Everything in Growth, plus:</strong></li>
-                                <li><strong>Full Owner's Dashboard</strong> with analytics, reports, per-location insights</li>
+                                <li>Full Owner's Dashboard with analytics + per-location insights</li>
                                 <li>Staff management per location</li>
                                 <li>Google Review Booster</li>
-                                <li>Smart customer targeting & promotions</li>
+                                <li>Smart targeting & promotions</li>
                             </ul>
                         </div>
-
                         <a href="#contact" class="btn" style="background: linear-gradient(to bottom, #154360, #1A5276); border-bottom-color: #0e2a47; width: 100%; padding: 18px; font-size: 1.2rem;">Select Native Plan</a>
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Dashboard comparison callout -->
-            <div style="margin-top: 50px; background: #f8f9fa; border-radius: 16px; padding: 35px 40px; max-width: 800px; margin-left: auto; margin-right: auto; border: 2px solid #e8e8e8;">
-                <h3 class="text-navy text-center" style="font-size: 1.5rem; margin-bottom: 20px;">Simple vs. Robust Dashboard: What's the Difference?</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                    <div>
-                        <h4 style="color: #555; margin-bottom: 10px; font-size: 1.1rem;">Simple Dashboard</h4>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; color: #666;">
-                            <li style="padding: 6px 0;">View your customers</li>
-                            <li style="padding: 6px 0;">Adjust point values & rewards</li>
-                            <li style="padding: 6px 0;">See total visits</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--accent-blue); margin-bottom: 10px; font-size: 1.1rem;">Robust Owner's Dashboard</h4>
-                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; color: #666;">
-                            <li style="padding: 6px 0;">Full revenue & visit analytics</li>
-                            <li style="padding: 6px 0;">Per-location breakdowns</li>
-                            <li style="padding: 6px 0;">Staff accounts & permissions</li>
-                            <li style="padding: 6px 0;">Customer segments & targeting</li>
-                            <li style="padding: 6px 0;">Automated promotions</li>
-                            <li style="padding: 6px 0;">Exportable reports</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
 
             <p class="text-center" style="margin-top: 40px; font-size: 1rem; color: #777; max-width: 600px; margin-left: auto; margin-right: auto;">
