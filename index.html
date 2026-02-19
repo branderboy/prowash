@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProWash Loyalty App | Digital Proposal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            /* Deeper, richer colors for "Million Dollar" look */
+            --primary-navy: #0e2a47; /* Darker, more premium navy */
+            --accent-blue: #3498db;
+            --action-green: #28b463;
+            --action-green-hover: #219150;
+            --highlight-gold: #f39c12;
+            --text-dark: #212529;
+            --text-grey: #555;
+            --bg-light: #f4f6f8; /* Very subtle blue-grey tint */
+            --bg-white: #ffffff;
+            --shadow-card: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.05);
+            --shadow-float: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            color: var(--text-grey);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- ICONS (SVG Styling) --- */
+        .icon-svg {
+            width: 64px;
+            height: 64px;
+            fill: currentColor;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .icon-small {
+            width: 32px;
+            height: 32px;
+        }
+
+        .icon-feature-large {
+            width: 120px;
+            height: 120px;
+            color: var(--accent-blue);
+            opacity: 0.9;
+        }
+
+        .text-gold .icon-svg { fill: var(--highlight-gold); }
+        .text-green .icon-svg { fill: var(--action-green); }
+        .text-navy .icon-svg { fill: var(--primary-navy); }
+        .text-white .icon-svg { fill: white; }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1000px; /* Slightly narrower for better reading flow */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center { text-align: center; }
+        .text-green { color: var(--action-green); }
+        .text-gold { color: var(--highlight-gold); }
+        .text-navy { color: var(--primary-navy); }
+        .bold { font-weight: 700; }
+        
+        .section-pad { padding: 100px 0; }
+        
+        .bg-navy { 
+            background-color: var(--primary-navy); 
+            color: white; 
+            /* Subtle texture overlay for premium feel */
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .bg-light { background-color: var(--bg-light); color: var(--text-dark); }
+        .bg-white { background-color: #fff; color: var(--text-dark); }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #2ecc71, #27ae60);
+            color: white;
+            padding: 22px 50px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            border-bottom: 4px solid #1e8449; /* 3D effect */
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 450px;
+            text-shadow: 0 2px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(2px);
+            border-bottom: 2px solid #1e8449;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+            filter: brightness(110%);
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- SECTION 1: HERO --- */
+        #hero {
+            background: radial-gradient(circle at center, #1A5276 0%, #0e2a47 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            border-bottom: 10px solid var(--highlight-gold);
+        }
+
+        .hero-pre {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            color: var(--highlight-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 4px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            line-height: 1.1;
+        }
+
+        .hero-sub {
+            font-size: 1.4rem;
+            color: #d6eaf8;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            font-weight: 400;
+        }
+
+        .trust-line {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            color: white;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- SECTION 2: PROBLEM --- */
+        .ugly-truth-box {
+            background: #fff;
+            border-left: 6px solid #2ecc71; /* Green for Objectives/Positive Frame */
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pain-point {
+            margin-bottom: 25px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: #444;
+        }
+        
+        .pain-icon {
+            color: #2ecc71;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .transition-line {
+            font-size: 2rem;
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary-navy);
+            margin-top: 60px;
+            line-height: 1.3;
+        }
+
+        /* --- SECTION 3: SOLUTION --- */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .icon-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .icon-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-icon-wrapper {
+            background: var(--action-green);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        /* --- SECTION 4: FEATURES --- */
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 120px;
+        }
+        
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-visual {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feature-hook {
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .callout-box {
+            background-color: #fff9db;
+            border-left: 5px solid var(--highlight-gold);
+            padding: 25px;
+            margin-top: 25px;
+            font-weight: 600;
+            color: #5f4c0b;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* --- SECTION 5: MATH --- */
+        .math-grid {
+            background: rgba(0,0,0,0.3);
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: 50px auto;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .math-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .math-total {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--action-green);
+            text-align: center;
+            margin-top: 40px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--action-green);
+        }
+
+        /* --- SECTION 6: STACK --- */
+        .the-stack {
+            border: 4px solid var(--primary-navy);
+            background: #fff;
+            padding: 0;
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-float);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .stack-header {
+            background: var(--primary-navy);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .stack-body {
+            padding: 40px;
+        }
+
+        .stack-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.15rem;
+            color: #333;
+        }
+        
+        .stack-val {
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .stack-total {
+            text-align: center;
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px -40px -40px -40px; /* Bleed to bottom */
+            border-top: 1px solid #ddd;
+        }
+
+        .total-val-label { font-size: 1.5rem; color: #999; text-decoration: line-through; display: block; margin-bottom: 10px;}
+        .real-price-reveal { font-size: 3.5rem; color: #c0392b; font-weight: 800; font-family: 'Oswald', sans-serif;}
+
+        /* --- SECTION 7: PRICING --- */
+        .pricing-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            transition: transform 0.3s;
+            border: 1px solid #eaeaea;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-float);
+        }
+
+        .price-header {
+            background: var(--text-dark); /* Sleek black/dark grey */
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .price-header.blue {
+            background: var(--primary-navy);
+        }
+
+        .price-body {
+            padding: 40px;
+        }
+
+        .tier-block {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .tier-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        .tier-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tier-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            font-family: 'Oswald', sans-serif;
+            margin: 10px 0 5px;
+        }
+        
+        .tier-sub { font-size: 0.9rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .recommended-badge {
+            background: var(--highlight-gold);
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            padding: 8px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+
+        ul.check-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 1rem;
+        }
+        ul.check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--action-green);
+            font-weight: bold;
+        }
+
+        /* Dark Mode Check List for Navy Sections */
+        ul.check-list-dark {
+            text-align: left;
+            display: inline-block; /* Centers the list block within text-center containers */
+            margin-top: 10px;
+        }
+        ul.check-list-dark li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: #d6eaf8; /* Light text for dark background */
+            font-size: 1rem;
+        }
+        ul.check-list-dark li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--action-green);
+            font-weight: bold;
+        }
+
+        /* --- SECTION 8: FAQ --- */
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .faq-q {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* --- FORM STYLES --- */
+        .activation-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-navy);
+        }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .form-checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        .form-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+        }
+        .form-checkbox-label {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* --- MOBILE STICKY --- */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .feature-row, .feature-row:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                margin-bottom: 80px;
+            }
+            .feature-visual { margin-bottom: 20px; }
+            .feature-visual svg { width: 100px; height: 100px; }
+            .callout-box { border-left: none; border-top: 5px solid var(--highlight-gold); border-radius: 5px; }
+            .stack-item { flex-direction: column; text-align: center; gap: 5px;}
+            .btn { width: 100%; padding: 18px; font-size: 1.2rem; }
+            .sticky-mobile-cta { display: block; }
+            body { padding-bottom: 80px; } /* Space for sticky CTA */
+            .price-header { padding: 30px 20px; }
+            .price-body { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="container fade-in">
+            <span class="hero-pre">Prepared Exclusively for ProWash</span>
+            <h1 class="hero-title">Your Custom ProWash Loyalty Platform<br><span style="color: var(--highlight-gold);">Strategy & Proposal</span></h1>
+            <p class="hero-sub">As requested, here is the complete scope, feature breakdown, and investment options for the mobile loyalty platform designed to turn your one-time customers into weekly regulars.</p>
+            
+            <a href="#pricing" class="btn">
+                REVIEW YOUR STRATEGY &nbsp;
+                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </a>
+            
+            <p class="trust-line">🔒 Prepared by TaggleFish | Valid for 30 Days</p>
+        </div>
+    </section>
+
+    <!-- THE PROBLEM (REFRAMED AS OBJECTIVES) -->
+    <section class="section-pad bg-white">
+        <div class="container">
+            <h2 class="text-center text-navy" style="font-size: 2.8rem; margin-bottom: 50px;">Executive Summary: <span style="color: #2ecc71; text-decoration: underline;">Project Objectives</span></h2>
+            
+            <div class="ugly-truth-box fade-in">
+                <div class="pain-point">
+                    <span class="pain-icon"><svg class="icon-small" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    <strong>Objective 1: Increase Retention.</strong> Transform transient "drive-by" customers into habit-based weekly regulars through automated incentives.
+                </div>
+                <div class="pain-point">
+                    <span class="pain-icon"><svg class="icon-small" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    <strong>Objective 2: Capture Customer Data.</strong> Move from "invisible" transactions to a owned database of customers we can reach via Push Notification at any time.
+                </div>
+                <div class="pain-point">
+                    <span class="pain-icon"><svg class="icon-small" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    <strong>Objective 3: Reward VIPs.</strong> Provide a superior experience for your high-value weekly washers to ensure they never switch to a competitor.
+                </div>
+                <div class="pain-point">
+                    <span class="pain-icon"><svg class="icon-small" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                    <strong>Objective 4: Lower Acquisition Costs.</strong> Utilize the "Refer-a-Friend" engine to acquire new customers for $0 ad spend.
+                </div>
+            </div>
+
+            <p class="text-center transition-line fade-in">Here is the detailed solution architecture designed to meet these goals.</p>
+        </div>
+    </section>
+
+    <!-- THE SOLUTION -->
+    <section class="section-pad bg-navy">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 class="text-gold" style="font-size: 2.5rem;">ProWash Loyalty System Architecture</h2>
+                <p style="color: #ecf0f1; font-size: 1.4rem; max-width: 800px; margin: 0 auto;">A custom-branded mobile experience that puts your car wash in your customer's pocket.</p>
+            </div>
+
+            <div class="icon-grid">
+                <!-- Col 1 -->
+                <div class="icon-card text-center fade-in">
+                    <div class="card-icon-wrapper">
+                        <!-- Wallet SVG -->
+                        <svg class="icon-svg" style="width: 40px; height: 40px; margin:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
+                    </div>
+                    <h3 style="margin-bottom: 15px; color: white;">The Rewards Engine</h3>
+                    <ul class="check-list-dark">
+                        <li>Earn points on every dollar spent</li>
+                        <li>Points stack toward free washes</li>
+                        <li>Gamification prevents switching</li>
+                    </ul>
+                </div>
+                <!-- Col 2 -->
+                <div class="icon-card text-center fade-in">
+                    <div class="card-icon-wrapper">
+                        <!-- Users SVG -->
+                        <svg class="icon-svg" style="width: 40px; height: 40px; margin:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 style="margin-bottom: 15px; color: white;">The Growth Loop</h3>
+                    <ul class="check-list-dark">
+                        <li>Integrated referral tracking</li>
+                        <li>Unique share codes for every user</li>
+                        <li>Double-sided rewards drive growth</li>
+                    </ul>
+                </div>
+                <!-- Col 3 -->
+                <div class="icon-card text-center fade-in">
+                    <div class="card-icon-wrapper">
+                        <!-- Magnet/Return SVG -->
+                        <svg class="icon-svg" style="width: 40px; height: 40px; margin:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    </div>
+                    <h3 style="margin-bottom: 15px; color: white;">Retention Automation</h3>
+                    <ul class="check-list-dark">
+                        <li>Auto-detects dormant users (14+ days)</li>
+                        <li>Triggers "We Miss You" offers</li>
+                        <li>Runs completely on autopilot</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES DEEP DIVE -->
+    <section class="section-pad bg-light">
+        <div class="container">
+            
+            <!-- Feature 1 -->
+            <div class="feature-row fade-in">
+                <div class="feature-visual">
+                    <!-- Diamond SVG -->
+                    <svg class="icon-feature-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9z"/></svg>
+                </div>
+                <div class="feature-content">
+                    <h2 class="text-navy">Custom Points System</h2>
+                    <p class="feature-hook">Every dollar spent builds equity in your brand.</p>
+                    <p>We will configure the app to award 10 points per dollar + 50 bonus points per visit. When a customer is 150 points away from a free wash, they are statistically 80% more likely to return to you over a competitor.</p>
+                    <p>This creates a "Switching Cost" — they won't leave because they don't want to lose their points.</p>
+                    <div class="callout-box">
+                        "Objective Met: Increasing frequency by creating psychological investment."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-row fade-in">
+                <div class="feature-visual">
+                    <!-- Ticket SVG -->
+                    <svg class="icon-feature-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/><path d="M15 3v18"/><path d="M3 15h18"/><path d="M3 9h18"/></svg>
+                </div>
+                <div class="feature-content">
+                    <h2 class="text-navy">Digital Stamp Card</h2>
+                    <p class="feature-hook">"Wash 9 times, get the 10th free."</p>
+                    <p>A simple, proven retention mechanic digitized. This runs in parallel with the points system, giving your customers two simultaneous goals to chase. This visual progress bar is a powerful motivator.</p>
+                    <p>When a user sees 7 out of 10 stamps, the urge to complete the card drives immediate visits.</p>
+                    <div class="callout-box">
+                        "Objective Met: Visual progress indicators drive repeat visits."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-row fade-in">
+                <div class="feature-visual">
+                    <!-- Megaphone SVG -->
+                    <svg class="icon-feature-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a4 4 0 0 0 4-4V9a4 4 0 1 0-8 0v8a4 4 0 0 0 4 4z"/><path d="M12 3v1"/><path d="M21 12h1"/><path d="M3 12h1"/><path d="M18.4 5.6l.7-.7"/><path d="M4.9 19.1l.7-.7"/><path d="M19.1 19.1l-.7-.7"/><path d="M5.6 5.6l-.7-.7"/></svg>
+                </div>
+                <div class="feature-content">
+                    <h2 class="text-navy">Viral Referral Engine</h2>
+                    <p class="feature-hook">Turning your happiest customers into a sales channel.</p>
+                    <p>We will implement a unique referral code system for every user. Customers can share this via SMS or social media directly from the app. This lowers your Customer Acquisition Cost (CAC) to effectively $0.</p>
+                    <p>Referred customers convert at a 30% higher rate than cold traffic.</p>
+                    <div class="callout-box">
+                        "Objective Met: Zero-cost customer acquisition channel."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-row fade-in">
+                <div class="feature-visual">
+                    <!-- Flame SVG -->
+                    <svg class="icon-feature-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.1.2-2.2.5-3.3.3-1.1 1-2.2 2-3.3a4.96 4.96 0 0 1 2.5 3.1z"/></svg>
+                </div>
+                <div class="feature-content">
+                    <h2 class="text-navy">Wash Streaks</h2>
+                    <p class="feature-hook">Building the "Weekly Wash" habit.</p>
+                    <p>The app tracks consecutive weeks with a wash. As a customer builds a streak, they earn bonus multipliers. This gamification is critical for shifting a monthly customer to a weekly customer.</p>
+                    <p>We can also configure Sunday Push Notifications to remind users to "Keep their streak alive."</p>
+                    <div class="callout-box">
+                        "Objective Met: Habit formation and frequency increase."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-row fade-in">
+                <div class="feature-visual">
+                    <!-- Alert/Bell SVG -->
+                    <svg class="icon-feature-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="feature-content">
+                    <h2 class="text-navy">Smart Churn Protection</h2>
+                    <p class="feature-hook">Automated Win-Back Campaigns.</p>
+                    <p>The system constantly monitors user activity. If a regular customer hasn't visited in 14 days, the system automatically triggers a personalized incentive. If they still haven't returned by day 21, the offer escalates.</p>
+                    <p>This automated safety net catches at-risk customers before they switch habits.</p>
+                    <div class="callout-box">
+                        "Objective Met: Automated retention and churn reduction."
+                    </div>
+                </div>
+            </div>
+
+             <!-- Feature 6, 7, 8, 9 Summary Block -->
+             <div class="feature-row fade-in" style="display: block; text-align: center; margin-top: 80px;">
+                <h2 class="text-navy" style="margin-bottom: 50px; font-size: 2.5rem;">Admin & Management Tools</h2>
+                <div class="icon-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                    <div>
+                        <!-- Trophy SVG -->
+                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10"/><path d="M17 4v8a5 5 0 0 1-10 0V4"/><path d="M5 9v2a2 2 0 0 0 2 2"/><path d="M19 9v2a2 2 0 0 1-2 2"/></svg></div>
+                        <h4>Tier Management</h4>
+                        <p style="font-size: 0.95rem;">Structure Bronze, Silver, Gold levels to incentivize higher spend.</p>
+                    </div>
+                    <div>
+                        <!-- Map Pin SVG -->
+                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <h4>Multi-Location Ready</h4>
+                        <p style="font-size: 0.95rem;">Seamlessly works across all ProWash locations.</p>
+                    </div>
+                    <div>
+                        <!-- Bell SVG -->
+                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                        <h4>Push Notification Suite</h4>
+                        <p style="font-size: 0.95rem;">Send promos, weather alerts, and birthday bonuses instantly.</p>
+                    </div>
+                    <div>
+                        <!-- Bar Chart SVG -->
+                        <div class="text-navy"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+                        <h4>Analytics Dashboard</h4>
+                        <p style="font-size: 0.95rem;">Track visits, points redeemed, and ROI in real-time.</p>
+                    </div>
+                </div>
+             </div>
+
+        </div>
+    </section>
+
+    <!-- THE MATH -->
+    <section class="section-pad bg-navy">
+        <div class="container fade-in">
+            <h2 class="text-center text-white" style="font-size: 2.5rem;">Projected ROI Analysis <span class="text-gold" style="font-style: italic; font-weight: 400;">(Conservative)</span></h2>
+            
+            <div class="math-grid">
+                <div class="math-row">
+                    <span style="color:#ddd; font-size: 1.1rem;">50 customers wash 1 extra time/month ($15 avg)</span>
+                    <span class="text-green bold" style="font-size: 1.5rem;">+$750/mo</span>
+                </div>
+                <div class="math-row">
+                    <span style="color:#ddd; font-size: 1.1rem;">10 customers upgrade wash tier ($8 more avg)</span>
+                    <span class="text-green bold" style="font-size: 1.5rem;">+$80/mo</span>
+                </div>
+                <div class="math-row">
+                    <span style="color:#ddd; font-size: 1.1rem;">5 referrals bring 5 new regulars/month</span>
+                    <span class="text-green bold" style="font-size: 1.5rem;">+$375/mo</span>
+                </div>
+                <div class="math-row">
+                    <span style="color:#ddd; font-size: 1.1rem;">Churn alerts save 10 customers/month</span>
+                    <span class="text-green bold" style="font-size: 1.5rem;">+$150/mo</span>
+                </div>
+                
+                <div class="math-total">
+                    TOTAL ESTIMATED IMPACT: +$1,355/month
+                </div>
+            </div>
+
+            <h3 class="text-center text-white" style="margin-top: 30px; font-size: 2.5rem; text-shadow: 0 5px 10px rgba(0,0,0,0.3);">BREAK-EVEN ESTIMATE: 4-6 WEEKS</h3>
+        </div>
+    </section>
+
+    <!-- THE OFFER STACK -->
+    <section class="section-pad bg-light">
+        <div class="container">
+            <h2 class="text-center text-navy" style="margin-bottom: 40px; font-size: 3rem;">Scope of Work & Deliverables</h2>
+            
+            <div class="the-stack fade-in">
+                <div class="stack-header">
+                    <h3 style="color: white; font-size: 2rem; margin:0;">THE PROWASH LOYALTY SYSTEM</h3>
+                </div>
+                <div class="stack-body">
+                    <div class="stack-item"><span>Custom-Branded Mobile App Design</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Points System Configuration</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Digital Stamp Card Integration</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Referral System & Tracking</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Wash Streaks Gamification</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Smart Churn Alerts (Win-Back)</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Push Notification System (8+ triggers)</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Multi-location Map with GPS</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Admin Dashboard Access</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item"><span>Staff Training Materials & QR Signage</span> <span class="stack-val">Included</span></div>
+                    <div class="stack-item" style="border-bottom: none;"><span class="bold text-navy">Full Source Code Ownership</span> <span class="stack-val text-gold">INCLUDED</span></div>
+                </div>
+                
+                <div class="stack-total">
+                    <div class="total-val-label">Standard Agency Rate: $18,300+</div>
+                    <p class="text-navy bold" style="margin-top: 10px; font-size: 1.2rem;">Your Custom Proposal Investment Below</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section-pad bg-white">
+        <div class="container">
+            <h2 class="text-center text-navy" style="font-size: 3rem;">Select Your Development Path</h2>
+            <p class="text-center" style="font-size: 1.3rem;">Please select the platform tier that best fits your current launch goals.</p>
+
+            <div class="pricing-container fade-in">
+                
+                <!-- PWA CARD -->
+                <div class="price-card">
+                    <div class="recommended-badge">Recommended for Launch</div>
+                    <div class="price-header">
+                        <h3 style="margin-bottom: 5px; font-size: 2rem;">Option A: Web App (PWA)</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 0; color: #ccc;">No download required. Scans instantly via QR.</p>
+                    </div>
+                    <div class="price-body">
+                        <!-- PWA Growth -->
+                        <div class="tier-block">
+                            <div class="tier-name">
+                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                GROWTH TIER
+                            </div>
+                            <div class="tier-price">$1,950</div>
+                            <p class="tier-sub">One-time build fee</p>
+                            <ul class="check-list" style="margin-top: 20px;">
+                                <li>Core Loyalty Features</li>
+                                <li>Points & Stamp Card</li>
+                                <li>Basic Admin Dashboard</li>
+                                <li>4-6 Week Delivery</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- PWA Scale -->
+                        <div class="tier-block">
+                            <div class="tier-name">
+                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
+                                SCALE TIER
+                            </div>
+                            <div class="tier-price">$2,750</div>
+                            <p class="tier-sub">One-time build fee</p>
+                            <ul class="check-list" style="margin-top: 20px;">
+                                <li><strong>Everything in Growth</strong></li>
+                                <li>Google Review Funnel</li>
+                                <li>Full Analytics Suite</li>
+                                <li>Staff Management</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contact" class="btn" style="width: 100%; padding: 18px; font-size: 1.2rem;">Select PWA Option</a>
+                    </div>
+                </div>
+
+                <!-- NATIVE CARD -->
+                <div class="price-card">
+                    <div class="price-header blue">
+                        <h3 style="margin-bottom: 5px; font-size: 2rem;">Option B: Native App</h3>
+                        <p style="font-size: 0.95rem; margin-bottom: 0; color: #aed6f1;">Apple App Store & Google Play Store</p>
+                    </div>
+                    <div class="price-body">
+                        <!-- Native Growth -->
+                        <div class="tier-block">
+                            <div class="tier-name">
+                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                GROWTH TIER
+                            </div>
+                            <div class="tier-price">$3,499</div>
+                            <p class="tier-sub">One-time build fee</p>
+                            <ul class="check-list" style="margin-top: 20px;">
+                                <li>Core Loyalty Features</li>
+                                <li>App Store Submission</li>
+                                <li>Push Notifications</li>
+                                <li>6-8 Week Delivery</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Native Scale -->
+                        <div class="tier-block">
+                            <div class="tier-name">
+                                <svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
+                                SCALE TIER
+                            </div>
+                            <div class="tier-price">$4,750</div>
+                            <p class="tier-sub">One-time build fee</p>
+                            <ul class="check-list" style="margin-top: 20px;">
+                                <li><strong>Everything in Growth</strong></li>
+                                <li>Advanced Targeting</li>
+                                <li>Full Analytics Suite</li>
+                                <li>Staff Management</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contact" class="btn" style="background: linear-gradient(to bottom, #154360, #1A5276); border-bottom-color: #0e2a47; width: 100%; padding: 18px; font-size: 1.2rem;">Select Native Option</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center" style="margin-top: 40px; font-size: 1rem; color: #777; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <strong>Payment Terms:</strong> $0 due today. Full development fee invoiced only after Phase 1 testing is complete and approved.
+                Recurring costs: $15–$50/month for hosting/infrastructure.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-pad bg-light">
+        <div class="container fade-in">
+            <h2 class="text-center text-navy" style="margin-bottom: 60px; font-size: 2.5rem;">Common Questions</h2>
+            
+            <div class="faq-item">
+                <p class="faq-q">Will my customers actually use this?</p>
+                <p style="margin:0;">Yes. We find that because the app gives them real monetary value (free washes) and progress tracking, adoption rates are significantly higher than basic informational apps.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Can we add more locations later?</p>
+                <p style="margin:0;">Absolutely. The architecture is built to scale. Adding a new location to the map and database is a simple admin update.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What is required from me during the build?</p>
+                <p style="margin:0;">We will need your logo files, brand colors, and approval on the final reward tier structure. We handle all technical development.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">What if I want to change the point values?</p>
+                <p style="margin:0;">You will have full access to an admin dashboard to adjust point values, rewards, tiers, and promotions at any time.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Do I own the code?</p>
+                <p style="margin:0;">Yes. Upon final payment, 100% of the source code and intellectual property belongs to you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="contact" class="section-pad bg-navy" style="text-align: center;">
+        <div class="container fade-in">
+            <h2 class="text-gold" style="font-size: 3.5rem; margin-bottom: 20px;">Project Activation</h2>
+            <p style="color: white; max-width: 700px; margin: 0 auto 40px; font-size: 1.3rem;">Secure your development slot. No payment required today.</p>
+            
+            <div class="activation-form">
+                <form action="mailto:que@tagglefish.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Select Your Package</label>
+                        <select class="form-select">
+                            <option value="PWA-Growth">Option A: PWA Growth ($1,950)</option>
+                            <option value="PWA-Scale">Option A: PWA Scale ($2,750)</option>
+                            <option value="Native-Growth">Option B: Native Growth ($3,499)</option>
+                            <option value="Native-Scale">Option B: Native Scale ($4,750)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-checkbox-wrapper">
+                        <input type="checkbox" class="form-checkbox" id="terms" required>
+                        <label for="terms" class="form-checkbox-label">
+                            <strong>I agree to the terms.</strong> I understand that no payment is due today. I agree to pay the full development fee selected above upon completion of the initial Phase 1 test phase.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; border:none;">ACTIVATE PROJECT - $0 DOWN</button>
+                </form>
+            </div>
+            
+            <p style="color: #7f8c8d; font-size: 0.9rem; margin-top: 30px; text-transform: uppercase; letter-spacing: 1px;">0% Down to Start. Invoice sent after Phase 1 testing.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background: #000; color: #777; padding: 40px; text-align: center; font-size: 0.9rem;">
+        <p style="margin-bottom: 10px;">Prepared by TaggleFish | Que Ali</p>
+        <p style="margin:0;">Copyright &copy; 2026</p>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-mobile-cta">
+        <a href="#contact" class="btn" style="padding: 15px 20px; font-size: 1rem; width: 100%;">APPROVE PROPOSAL</a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
