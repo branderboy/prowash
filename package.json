@@ -1,0 +1,12 @@
+{
+  "name": "prowash-stripe-invoicing",
+  "version": "1.0.0",
+  "description": "Stripe invoice generator for Pro Wash proposals",
+  "type": "module",
+  "scripts": {
+    "invoice": "node generate-invoice.js"
+  },
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}
