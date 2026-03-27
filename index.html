@@ -87,15 +87,15 @@
             background: #FFFFFF;
         }
         .service-tab.active-tab {
-            background: #0A1628;
-            border-color: #0A1628;
-            color: white;
+            background: #EFF6FF;
+            border-color: #0056D2;
+            color: #0A1628;
         }
-        .service-tab.active-tab .tab-title { color: white; }
-        .service-tab.active-tab .tab-sub { color: rgba(255,255,255,0.6); }
-        .service-tab.active-tab .tab-icon-wrap { background: rgba(255,255,255,0.15); }
+        .service-tab.active-tab .tab-title { color: #0A1628; }
+        .service-tab.active-tab .tab-sub { color: #64748B; }
+        .service-tab.active-tab .tab-icon-wrap { background: #0056D2; }
         .service-tab.active-tab .tab-icon-wrap svg { color: white; }
-        .service-tab.active-tab .tab-arrow { opacity: 1; }
+        .service-tab.active-tab .tab-arrow { opacity: 1; color: #0056D2; }
         .service-tab:not(.active-tab):hover {
             border-color: #CBD5E1;
             background: #F8FAFC;
@@ -152,7 +152,7 @@
     </div>
 
     <!-- The Story / VSL Replacement (Direct Response Copy) -->
-    <section id="the-story" class="py-12 bg-white border-b border-slate-200 relative z-20">
+    <section id="the-story" class="py-16 bg-[#F8FAFC] border-b border-slate-200 relative z-20">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-tight">
@@ -242,40 +242,46 @@
                     </div>
                 </div>
 
-                <p class="text-3xl md:text-4xl font-heading font-black text-slate-900 mt-16 pt-12 border-t border-slate-200 text-center leading-tight">This infrastructure is designed to do three things flawlessly:</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid md:grid-cols-3 gap-6 my-10">
-                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden text-center flex flex-col items-center">
-                        <svg class="w-8 h-8 text-brand-blue mb-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                        <strong class="text-brand-blue font-heading uppercase tracking-widest text-lg mb-3">1. Acquisition</strong>
-                        <p class="text-slate-600 text-sm leading-relaxed">A 40-page Local SEO machine built to push competitors off the first page of Google.</p>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden text-center flex flex-col items-center">
-                        <svg class="w-8 h-8 text-brand-blue mb-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                        <strong class="text-brand-blue font-heading uppercase tracking-widest text-lg mb-3">2. Community</strong>
-                        <p class="text-slate-600 text-sm leading-relaxed">An Affiliate Store that turns local churches and nonprofits into your personal sales team.</p>
-                    </div>
-                    
-                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden text-center flex flex-col items-center">
-                        <svg class="w-8 h-8 text-brand-blue mb-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                        <strong class="text-brand-blue font-heading uppercase tracking-widest text-lg mb-3">3. Retention</strong>
-                        <p class="text-slate-600 text-sm leading-relaxed">A self-hosted email platform capable of blasting 50,000 emails/mo for ~$20.</p>
-                    </div>
+    <!-- Three Pillars — Dark Navy Section -->
+    <section class="py-16 bg-[#0A1628] relative z-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <p class="text-3xl md:text-4xl font-heading font-black text-white text-center leading-tight mb-12">This infrastructure is designed to do three things flawlessly:</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white/5 backdrop-blur p-8 rounded-xl border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center">
+                    <svg class="w-8 h-8 text-brand-cyan mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <strong class="text-brand-cyan font-heading uppercase tracking-widest text-lg mb-3">1. Acquisition</strong>
+                    <p class="text-slate-400 text-sm leading-relaxed">A 40-page Local SEO machine built to push competitors off the first page of Google.</p>
                 </div>
 
-                <div class="bg-green-50 p-8 border-2 border-green-200 rounded-xl text-center shadow-md my-12">
-                    <p class="font-black font-heading text-2xl md:text-4xl text-slate-900 leading-snug">
-                        You own all three systems outright. <br class="hidden md:block" />
-                        <span class="text-green-700">Zero monthly platform fees.</span>
-                    </p>
+                <div class="bg-white/5 backdrop-blur p-8 rounded-xl border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center">
+                    <svg class="w-8 h-8 text-green-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <strong class="text-green-400 font-heading uppercase tracking-widest text-lg mb-3">2. Community</strong>
+                    <p class="text-slate-400 text-sm leading-relaxed">An Affiliate Store that turns local churches and nonprofits into your personal sales team.</p>
                 </div>
+
+                <div class="bg-white/5 backdrop-blur p-8 rounded-xl border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center">
+                    <svg class="w-8 h-8 text-orange-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    <strong class="text-orange-400 font-heading uppercase tracking-widest text-lg mb-3">3. Retention</strong>
+                    <p class="text-slate-400 text-sm leading-relaxed">A self-hosted email platform capable of blasting 50,000 emails/mo for ~$20.</p>
+                </div>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 p-8 rounded-xl text-center">
+                <p class="font-black font-heading text-2xl md:text-4xl text-white leading-snug">
+                    You own all three systems outright. <br class="hidden md:block" />
+                    <span class="text-brand-cyan">Zero monthly platform fees.</span>
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Corporate Locations Setup -->
-    <section class="py-10 bg-[#F8FAFC] border-b border-slate-200 relative z-20">
+    <section class="py-14 bg-white border-b border-slate-200 relative z-20">
         <div class="container mx-auto px-4 max-w-6xl">
             <div class="text-center mb-8">
                 <h2 class="text-2xl md:text-3xl font-heading font-bold text-slate-900 uppercase tracking-tight">Deploying Across <span class="text-brand-blue">All 5 Locations</span></h2>
@@ -353,7 +359,7 @@
     </section>
 
     <!-- Interactive Selection & Checkout Section -->
-    <section id="build-selection" class="py-12 relative bg-[#F4F7F9]">
+    <section id="build-selection" class="py-16 relative bg-[#EFF6FF]">
         <div class="container mx-auto px-4 max-w-7xl">
             
             <div class="text-center mb-8">
@@ -587,6 +593,10 @@
                                     <p class="font-bold text-slate-500 text-xs uppercase tracking-wider">Monthly Recurring</p>
                                     <p id="monthly-price" class="text-lg font-bold font-heading text-brand-blue">$0</p>
                                 </div>
+                                <div class="flex justify-between items-end mt-2 mb-1">
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider font-bold">50% Deposit Due</p>
+                                    <p id="deposit-price" class="text-lg font-bold font-heading text-green-600">$763</p>
+                                </div>
                                 <p class="text-[11px] text-slate-500 text-right uppercase tracking-wider font-bold text-brand-accent mt-3">Zero Platform Fees. You Own It.</p>
                             </div>
 
@@ -609,7 +619,7 @@
     </section>
 
     <!-- Timeline & Milestones -->
-    <section class="py-12 bg-white border-b border-slate-200 relative z-20">
+    <section class="py-16 bg-white border-b border-slate-200 relative z-20">
         <div class="container mx-auto px-4 max-w-5xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Project <span class="text-brand-blue">Timeline</span></h2>
@@ -683,7 +693,7 @@
     </section>
 
     <!-- Scope of Work -->
-    <section class="py-12 bg-[#F4F7F9] border-b border-slate-200 relative z-20">
+    <section class="py-16 bg-[#F1F5F9] border-b border-slate-200 relative z-20">
         <div class="container mx-auto px-4 max-w-5xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Scope of <span class="text-brand-blue">Work</span></h2>
@@ -750,7 +760,7 @@
     </section>
 
     <!-- Hosting Details -->
-    <section class="py-12 bg-white border-b border-slate-200 relative z-20">
+    <section class="py-16 bg-[#EFF6FF] border-b border-slate-200 relative z-20">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Hosting & <span class="text-brand-blue">Infrastructure</span></h2>
@@ -784,7 +794,7 @@
     </section>
 
     <!-- Terms & Agreement -->
-    <section class="py-12 bg-[#F4F7F9] border-b border-slate-200 relative z-20">
+    <section class="py-16 bg-white border-b border-slate-200 relative z-20">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Terms & <span class="text-brand-blue">Agreement</span></h2>
@@ -842,7 +852,7 @@
     </section>
 
     <!-- Signature / Acceptance -->
-    <section class="py-12 bg-white relative z-20">
+    <section class="py-16 bg-[#F1F5F9] relative z-20">
         <div class="container mx-auto px-4 max-w-3xl">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Accept <span class="text-brand-blue">Proposal</span></h2>
@@ -977,6 +987,7 @@
             }
 
             document.getElementById('total-price').innerText = formatMoney(totalOneTime);
+            document.getElementById('deposit-price').innerText = formatMoney(Math.round(totalOneTime / 2));
 
             const monthlyContainer = document.getElementById('monthly-recurring-container');
             const monthlyPrice = document.getElementById('monthly-price');
@@ -1031,21 +1042,38 @@
             recalcTotals();
         }
 
-        // Checkout Handler
-        function processCheckout() {
-            const selectedItems = [];
-            let oneTime = 0;
-            let monthly = 0;
-            for (const key in cart) {
-                if (cart[key].active) {
-                    let label = key;
-                    if (key === 'website') label = 'website (' + cart.website.tier + ')';
-                    selectedItems.push(label);
-                    if (cart[key].type === 'monthly') monthly += cart[key].price;
-                    else oneTime += cart[key].price;
-                }
+        // Checkout Handler — Real Stripe Checkout
+        async function processCheckout() {
+            var btn = document.getElementById('checkout-btn');
+            btn.disabled = true;
+            btn.innerHTML = 'Connecting to Stripe...';
+
+            var selectedItems = [];
+            for (var key in cart) {
+                if (cart[key].active) selectedItems.push(key);
             }
-            alert('Redirecting to Stripe Checkout...\n\nItems: ' + selectedItems.join(', ') + '\nTotal Due Today: $' + oneTime + '\nMonthly Recurring: $' + monthly + '/mo');
+
+            try {
+                var resp = await fetch('/api/create-checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        items: selectedItems,
+                        websiteTier: cart.website.tier || 'html',
+                    }),
+                });
+
+                var data = await resp.json();
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Could not create checkout session');
+                }
+            } catch (err) {
+                alert('Error: ' + err.message + '. Please try again.');
+                btn.disabled = false;
+                btn.innerHTML = '<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2H9v2H7v-2H5.5C4.67 15 4 14.33 4 13.5v-3C4 9.67 4.67 9 5.5 9H9V7h2v2h2v2H9v2h2.5c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5H11z"/></svg> Checkout via Stripe';
+            }
         }
 
         // Service tab switcher
@@ -1063,40 +1091,79 @@
             document.getElementById('tab-' + tabId).classList.add('active-tab');
         }
 
-        // Acceptance form handler
-        function submitAcceptance() {
-            const name = document.getElementById('sig-name').value.trim();
-            const email = document.getElementById('sig-email').value.trim();
-            const terms = document.getElementById('accept-terms').checked;
+        // Acceptance form handler — sends to Stripe Checkout with client info
+        async function submitAcceptance() {
+            var name = document.getElementById('sig-name').value.trim();
+            var email = document.getElementById('sig-email').value.trim();
+            var terms = document.getElementById('accept-terms').checked;
 
             if (!name || !email || !terms) {
                 alert('Please fill in your name, email, and accept the terms to continue.');
                 return;
             }
 
-            const btn = document.getElementById('accept-btn');
+            var btn = document.getElementById('accept-btn');
             btn.disabled = true;
-            btn.innerText = 'Submitting...';
+            btn.innerText = 'Processing...';
 
-            // Build summary of selected items
-            const items = [];
-            for (const key in cart) {
-                if (cart[key].active) {
-                    let label = key;
-                    if (key === 'website') label = 'Website (' + cart.website.tier.toUpperCase() + ' - $' + cart.website.price + ')';
-                    else label = key + ' ($' + cart[key].price + (cart[key].type === 'monthly' ? '/mo' : '') + ')';
-                    items.push(label);
-                }
+            var selectedItems = [];
+            for (var key in cart) {
+                if (cart[key].active) selectedItems.push(key);
             }
 
-            // For now, show confirmation — replace with real Stripe invoice call
-            setTimeout(function() {
-                btn.innerText = 'Proposal Accepted';
-                btn.classList.add('bg-green-600', 'hover:bg-green-700');
-                btn.classList.remove('bg-brand-blue', 'hover:bg-[#003B93]');
-                alert('Proposal accepted by ' + name + '!\n\nSelected: ' + items.join(', ') + '\n\nA Stripe invoice for the 50% deposit will be sent to ' + email + '.');
-            }, 800);
+            if (selectedItems.length === 0) {
+                alert('Please select at least one module above.');
+                btn.disabled = false;
+                btn.innerText = 'Accept Proposal & Request Invoice';
+                return;
+            }
+
+            try {
+                var resp = await fetch('/api/create-checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        items: selectedItems,
+                        websiteTier: cart.website.tier || 'html',
+                        clientName: name,
+                        clientEmail: email,
+                    }),
+                });
+
+                var data = await resp.json();
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Could not create checkout session');
+                }
+            } catch (err) {
+                alert('Error: ' + err.message + '. Please try again.');
+                btn.disabled = false;
+                btn.innerText = 'Accept Proposal & Request Invoice';
+            }
         }
+
+        // Handle return from Stripe
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('payment') === 'success') {
+                var banner = document.createElement('div');
+                banner.className = 'fixed top-0 left-0 right-0 bg-green-600 text-white text-center py-4 px-6 z-50 font-heading font-bold text-lg uppercase tracking-wide shadow-lg';
+                banner.innerHTML = 'Payment Received — Thank you! We will be in touch within 24 hours.';
+                document.body.prepend(banner);
+                window.history.replaceState({}, '', window.location.pathname);
+            } else if (params.get('payment') === 'cancelled') {
+                var banner = document.createElement('div');
+                banner.className = 'fixed top-0 left-0 right-0 bg-orange-500 text-white text-center py-4 px-6 z-50 font-heading font-bold text-lg uppercase tracking-wide shadow-lg cursor-pointer';
+                banner.innerHTML = 'Payment cancelled. Click here to scroll back to checkout.';
+                banner.onclick = function() {
+                    document.getElementById('build-selection').scrollIntoView({ behavior: 'smooth' });
+                    banner.remove();
+                };
+                document.body.prepend(banner);
+                window.history.replaceState({}, '', window.location.pathname);
+            }
+        })();
     </script>
 
 </body>
