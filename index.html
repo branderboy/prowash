@@ -79,6 +79,11 @@
         /* Letter typography */
         .sales-letter p { margin-bottom: 1.5rem; }
         .highlight-text { background-color: rgba(0, 229, 255, 0.15); font-weight: 700; padding: 0 4px; border-radius: 2px; }
+
+        /* Service tabs */
+        .service-tab { opacity: 0.6; }
+        .service-tab.active-tab { opacity: 1; background: rgba(255,255,255,0.08); }
+        .service-tab:hover { opacity: 0.85; background: rgba(255,255,255,0.05); }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden selection:bg-brand-blue selection:text-white bg-brand-offwhite">
@@ -151,42 +156,67 @@
                     </p>
                 </div>
 
-                <!-- 1. The Local Website -->
-                <div>
-                    <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">The Local Website</h3>
-                    <div class="bg-blue-50 border-l-4 border-l-brand-blue p-6 rounded-r-lg shadow-sm">
-                        <p class="mb-3 text-slate-800">
-                            Right now, a massive amount of your activity and inbound calls come directly from your Google Business Profile (GMB). We are going to capitalize on that by building a 40-page Local SEO website dedicated to perfectly <strong class="text-brand-blue">mirroring your GMB categories, services, and local reach</strong>.
-                        </p>
-                        <p class="text-slate-800">
-                            By matching exact local search intent, we push competitors off the first page of Google. This site acts as an engine to rank higher and drive daily calls and visits to all 5 locations. You won't just compete—you will own the market.
-                        </p>
+                <!-- Tabbed Content Box -->
+                <div class="flex flex-col md:flex-row bg-white border border-slate-200 rounded-xl shadow-md overflow-hidden min-h-[340px]">
+                    <!-- Left Tabs -->
+                    <div class="md:w-64 shrink-0 bg-slate-900 flex md:flex-col">
+                        <button onclick="switchTab('website')" id="tab-website" class="service-tab active-tab flex items-center gap-3 px-5 py-5 text-left w-full transition-all duration-200 border-b border-white/10 group">
+                            <div class="w-10 h-10 rounded-lg bg-brand-blue/20 flex items-center justify-center shrink-0 group-[.active-tab]:bg-brand-blue transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                            </div>
+                            <div>
+                                <span class="font-heading font-bold text-sm uppercase text-white block leading-tight">The Local Website</span>
+                                <span class="text-[11px] text-slate-400 leading-tight">40-Page SEO Engine</span>
+                            </div>
+                        </button>
+                        <button onclick="switchTab('store')" id="tab-store" class="service-tab flex items-center gap-3 px-5 py-5 text-left w-full transition-all duration-200 border-b border-white/10 group">
+                            <div class="w-10 h-10 rounded-lg bg-green-600/20 flex items-center justify-center shrink-0 group-[.active-tab]:bg-green-600 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="font-heading font-bold text-sm uppercase text-white block leading-tight">Fundraiser Store</span>
+                                <span class="text-[11px] text-slate-400 leading-tight">Shopify + Affiliates</span>
+                            </div>
+                        </button>
+                        <button onclick="switchTab('mailchimp')" id="tab-mailchimp" class="service-tab flex items-center gap-3 px-5 py-5 text-left w-full transition-all duration-200 group">
+                            <div class="w-10 h-10 rounded-lg bg-slate-600/30 flex items-center justify-center shrink-0 group-[.active-tab]:bg-slate-600 transition-colors">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="font-heading font-bold text-sm uppercase text-white block leading-tight">Mailchimp Killer</span>
+                                <span class="text-[11px] text-slate-400 leading-tight">Own Your Email List</span>
+                            </div>
+                        </button>
                     </div>
-                </div>
-
-                <!-- 2. Shopify & Fundraising App -->
-                <div>
-                    <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">Your Own Shopify & Fundraising App</h3>
-                    <div class="bg-green-50 border-l-4 border-l-green-500 p-6 rounded-r-lg shadow-sm">
-                        <p class="mb-3 text-slate-800">
-                            We are building your own robust e-commerce storefront, but with a massive community twist. We take your signature <strong class="text-green-700">wholesale products</strong>—like your premium car wax and detail kits—and plug them into a custom affiliate fundraiser system.
-                        </p>
-                        <p class="text-slate-800">
-                            Local churches, schools, and nonprofits get their own branded pages to sell these products to raise funds. They hit their financial goals, while acting as a massive, zero-ad-spend sales force constantly promoting the Pro Wash brand.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 3. Mailchimp -->
-                <div>
-                    <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">The Mailchimp Killer</h3>
-                    <div class="bg-slate-50 border-l-4 border-l-slate-800 p-6 rounded-r-lg shadow-sm">
-                        <p class="mb-3 text-slate-800">
-                            Every month, local franchises fall into the trap of paying upwards of $300/month to companies like Mailchimp just for the privilege of emailing customers they already earned. If you stop paying them tomorrow, you lose your audience. <strong class="text-slate-900">That means you don't own your business—they do.</strong>
-                        </p>
-                        <p class="text-slate-800">
-                            We are replacing this with a fully private, self-hosted email marketing platform capable of blasting 50,000 emails a month for roughly $20. You own the database, the lists, and the infrastructure.
-                        </p>
+                    <!-- Right Content -->
+                    <div class="flex-grow p-8 md:p-10 relative">
+                        <div id="content-website" class="tab-content">
+                            <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">The Local Website</h3>
+                            <p class="mb-4 text-slate-800 leading-relaxed">
+                                Right now, a massive amount of your activity and inbound calls come directly from your Google Business Profile (GMB). We are going to capitalize on that by building a 40-page Local SEO website dedicated to perfectly <strong class="text-brand-blue">mirroring your GMB categories, services, and local reach</strong>.
+                            </p>
+                            <p class="text-slate-800 leading-relaxed">
+                                By matching exact local search intent, we push competitors off the first page of Google. This site acts as an engine to rank higher and drive daily calls and visits to all 5 locations. You won't just compete—you will own the market.
+                            </p>
+                        </div>
+                        <div id="content-store" class="tab-content hidden">
+                            <h3 class="text-2xl font-heading font-black text-green-600 mb-4">Your Own Shopify & Fundraising App</h3>
+                            <p class="mb-4 text-slate-800 leading-relaxed">
+                                We are building your own robust e-commerce storefront, but with a massive community twist. We take your signature <strong class="text-green-700">wholesale products</strong>—like your premium car wax and detail kits—and plug them into a custom affiliate fundraiser system.
+                            </p>
+                            <p class="text-slate-800 leading-relaxed">
+                                Local churches, schools, and nonprofits get their own branded pages to sell these products to raise funds. They hit their financial goals, while acting as a massive, zero-ad-spend sales force constantly promoting the Pro Wash brand.
+                            </p>
+                        </div>
+                        <div id="content-mailchimp" class="tab-content hidden">
+                            <h3 class="text-2xl font-heading font-black text-slate-800 mb-4">The Mailchimp Killer</h3>
+                            <p class="mb-4 text-slate-800 leading-relaxed">
+                                Every month, local franchises fall into the trap of paying upwards of $300/month to companies like Mailchimp just for the privilege of emailing customers they already earned. If you stop paying them tomorrow, you lose your audience. <strong class="text-slate-900">That means you don't own your business—they do.</strong>
+                            </p>
+                            <p class="text-slate-800 leading-relaxed">
+                                We are replacing this with a fully private, self-hosted email marketing platform capable of blasting 50,000 emails a month for roughly $20. You own the database, the lists, and the infrastructure.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -994,6 +1024,21 @@
                 }
             }
             alert('Redirecting to Stripe Checkout...\n\nItems: ' + selectedItems.join(', ') + '\nTotal Due Today: $' + oneTime + '\nMonthly Recurring: $' + monthly + '/mo');
+        }
+
+        // Service tab switcher
+        function switchTab(tabId) {
+            // Hide all content
+            document.querySelectorAll('.tab-content').forEach(function(el) {
+                el.classList.add('hidden');
+            });
+            // Deactivate all tabs
+            document.querySelectorAll('.service-tab').forEach(function(el) {
+                el.classList.remove('active-tab');
+            });
+            // Show selected content & activate tab
+            document.getElementById('content-' + tabId).classList.remove('hidden');
+            document.getElementById('tab-' + tabId).classList.add('active-tab');
         }
 
         // Acceptance form handler
