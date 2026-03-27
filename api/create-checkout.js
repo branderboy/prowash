@@ -18,7 +18,7 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'Stripe key not configured' });
   }
 
-  const stripe = new Stripe(secretKey);
+  const stripe = new Stripe(secretKey, { apiVersion: '2023-10-16' });
 
   try {
     const { items, clientName, clientEmail, websiteTier } = req.body;
