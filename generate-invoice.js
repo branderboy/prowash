@@ -1,6 +1,6 @@
-import Stripe from 'stripe';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
+const Stripe = require('stripe');
+const { readFileSync } = require('fs');
+const { resolve } = require('path');
 
 // ---------------------------------------------------------------------------
 // Load .env manually (no dotenv dependency needed)
