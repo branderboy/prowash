@@ -797,51 +797,6 @@
         </div>
     </section>
 
-    <!-- Signature / Acceptance -->
-    <section class="py-16 bg-[#EFF6FF] relative z-20">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Accept <span class="text-brand-blue">Proposal</span></h2>
-                <p class="text-slate-600 mt-2">By signing below, you agree to the scope, terms, and pricing outlined in this proposal.</p>
-                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
-            </div>
-            <div class="bg-slate-50 border-2 border-slate-200 rounded-xl p-8">
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Client Name</label>
-                        <input type="text" id="sig-name" placeholder="Full legal name" class="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 font-medium focus:border-brand-blue focus:outline-none transition-colors">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Email Address</label>
-                        <input type="email" id="sig-email" placeholder="your@email.com" class="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 font-medium focus:border-brand-blue focus:outline-none transition-colors">
-                    </div>
-                </div>
-                <div class="mb-8">
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Signature</label>
-                    <div class="border-2 border-dashed border-slate-300 rounded-lg h-28 flex items-center justify-center bg-white cursor-pointer hover:border-brand-blue transition-colors" onclick="this.innerHTML = '<p class=\'text-brand-blue font-heading font-bold text-2xl italic\'>Signed Digitally</p>'">
-                        <p class="text-slate-400 text-sm">Click to sign</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-3 mb-6">
-                    <input type="checkbox" id="accept-terms" class="w-5 h-5 mt-0.5 rounded border-slate-300 text-brand-blue focus:ring-brand-blue cursor-pointer">
-                    <label for="accept-terms" class="text-sm text-slate-700 cursor-pointer">
-                        I have reviewed and agree to the <strong>scope of work, payment terms, revision policy, IP transfer,</strong> and <strong>support retainer terms</strong> outlined in this proposal. I understand a 50% deposit is due to begin work.
-                    </label>
-                </div>
-                <div class="text-center">
-                    <button onclick="submitAcceptance()" class="bg-brand-blue hover:bg-[#003B93] text-white font-bold font-heading text-lg py-4 px-12 rounded-lg transition-all duration-300 shadow-md uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed" id="accept-btn">
-                        Accept Proposal & Request Invoice
-                    </button>
-                    <p class="text-xs text-slate-500 mt-3">You will receive a Stripe invoice for the 50% deposit after acceptance.</p>
-                </div>
-            </div>
-            <div class="text-center mt-6">
-                <p class="text-xs text-slate-400 uppercase tracking-wider font-bold">This proposal is valid for 30 days from date of delivery.</p>
-                <p class="text-xs text-slate-400 mt-1">Prepared March 2026 by TaggleFish</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="bg-slate-900 py-8 text-center relative z-20 border-t border-slate-800">
         <div class="container mx-auto px-4">
