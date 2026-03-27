@@ -67,16 +67,14 @@ export default async function handler(req, res) {
       if (itemKey === 'website') {
         const tier = websiteTier === 'cms' ? 'cms' : 'html';
         const product = catalog.website[tier];
-        // 50% deposit
-        const depositAmount = Math.round(product.price / 2);
         lineItems.push({
           price_data: {
             currency: 'usd',
             product_data: {
-              name: product.name + ' — 50% Deposit',
+              name: product.name,
               description: product.description,
             },
-            unit_amount: depositAmount,
+            unit_amount: product.price,
           },
           quantity: 1,
         });
@@ -97,16 +95,14 @@ export default async function handler(req, res) {
         });
       } else if (catalog[itemKey]) {
         const product = catalog[itemKey];
-        // 50% deposit
-        const depositAmount = Math.round(product.price / 2);
         lineItems.push({
           price_data: {
             currency: 'usd',
             product_data: {
-              name: product.name + ' — 50% Deposit',
+              name: product.name,
               description: product.description,
             },
-            unit_amount: depositAmount,
+            unit_amount: product.price,
           },
           quantity: 1,
         });
