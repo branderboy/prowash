@@ -315,30 +315,77 @@
                 <div class="lg:col-span-8 space-y-6">
                     
                     <!-- Item 1: Website -->
-                    <div id="card-website" class="selectable-card selected bg-white border-2 rounded-xl p-6 relative flex flex-col md:flex-row gap-6 shadow-franchise" onclick="toggleItem('website')">
-                        <div class="absolute top-6 right-6 check-icon w-6 h-6 border-2 rounded flex items-center justify-center z-10">
+                    <div id="card-website" class="selectable-card selected bg-white border-2 rounded-xl p-6 relative shadow-franchise">
+                        <div class="absolute top-6 right-6 check-icon w-6 h-6 border-2 rounded flex items-center justify-center z-10" onclick="toggleItem('website')">
                             <svg class="check-svg w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <div class="w-16 h-16 bg-blue-50 border border-blue-100 rounded-lg flex items-center justify-center shrink-0">
-                            <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                        </div>
-                        <div class="flex-grow pr-8">
-                            <div class="flex items-center gap-3 mb-1">
-                                <h3 class="font-heading font-bold text-xl text-slate-900 uppercase">Local SEO Website</h3>
+                        <div class="flex flex-col md:flex-row gap-6 mb-5" onclick="toggleItem('website')">
+                            <div class="w-16 h-16 bg-blue-50 border border-blue-100 rounded-lg flex items-center justify-center shrink-0">
+                                <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                             </div>
-                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">A custom 40-page site built to push competitors off the first page of Google across Prince George's County and DC.</p>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-700 font-medium">
-                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> 40 pages search-intent content</li>
-                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Dedicated location pages</li>
-                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Built-in Schema markup</li>
-                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> 30 days SEO support</li>
-                            </ul>
+                            <div class="flex-grow pr-8">
+                                <h3 class="font-heading font-bold text-xl text-slate-900 uppercase mb-1">Local SEO Website</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">A custom 40-page site built to push competitors off the first page of Google across Prince George's County and DC.</p>
+                            </div>
                         </div>
-                        <div class="md:w-32 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 pl-0 md:pl-6 shrink-0">
-                            <div class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Build Fee</div>
-                            <div class="flex items-center md:items-end md:flex-col gap-2 md:gap-0">
-                                <div class="text-sm line-through text-brand-accent font-medium">$2,000</div>
-                                <div class="text-3xl font-heading font-black text-slate-900">$500</div>
+                        <!-- Website Tier Options -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div id="tier-website-html" class="border-2 border-brand-blue bg-blue-50/50 rounded-lg p-4 cursor-pointer transition-all" onclick="event.stopPropagation(); selectWebsiteTier('html')">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div id="radio-html" class="w-5 h-5 rounded-full border-2 border-brand-blue flex items-center justify-center">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-brand-blue"></div>
+                                    </div>
+                                    <span class="font-heading font-bold text-sm uppercase text-slate-900">Option A — HTML + PHP</span>
+                                </div>
+                                <p class="text-xs text-slate-500 ml-7 mb-2 italic">Best for speed and simplicity — set it and forget it.</p>
+                                <ul class="text-xs text-slate-600 space-y-1 ml-7 mb-2">
+                                    <li class="flex items-center"><span class="text-brand-blue mr-1.5">■</span> 40 pages search-intent content</li>
+                                    <li class="flex items-center"><span class="text-brand-blue mr-1.5">■</span> Dedicated location pages</li>
+                                    <li class="flex items-center"><span class="text-brand-blue mr-1.5">■</span> Built-in Schema markup</li>
+                                    <li class="flex items-center"><span class="text-brand-blue mr-1.5">■</span> 30 days SEO support</li>
+                                </ul>
+                                <div class="ml-7 mb-3 bg-white/80 rounded p-2 border border-blue-100">
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-brand-blue mb-1">Why Choose This</p>
+                                    <ul class="text-[11px] text-slate-600 space-y-0.5">
+                                        <li>Lightning fast load times (no framework overhead)</li>
+                                        <li>Runs anywhere — HostGator, any shared hosting</li>
+                                        <li>Lowest maintenance, no dependencies to update</li>
+                                        <li>Perfect if you don't need to edit pages yourself</li>
+                                    </ul>
+                                </div>
+                                <div class="ml-7">
+                                    <span class="text-sm line-through text-brand-accent font-medium">$2,000</span>
+                                    <span class="text-2xl font-heading font-black text-slate-900 ml-2">$500</span>
+                                </div>
+                            </div>
+                            <div id="tier-website-cms" class="border-2 border-slate-200 bg-white rounded-lg p-4 cursor-pointer transition-all hover:border-slate-300" onclick="event.stopPropagation(); selectWebsiteTier('cms')">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div id="radio-cms" class="w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                                    </div>
+                                    <span class="font-heading font-bold text-sm uppercase text-slate-900">Option B — Custom CMS</span>
+                                </div>
+                                <p class="text-xs text-slate-500 ml-7 mb-2 italic">Best for long-term growth — own your content engine.</p>
+                                <ul class="text-xs text-slate-600 space-y-1 ml-7 mb-2">
+                                    <li class="flex items-center"><span class="text-green-600 mr-1.5">■</span> Everything in Option A, plus:</li>
+                                    <li class="flex items-center"><span class="text-green-600 mr-1.5">■</span> Built on Next.js — your own CMS</li>
+                                    <li class="flex items-center"><span class="text-green-600 mr-1.5">■</span> Visual page editor (add/edit pages yourself)</li>
+                                    <li class="flex items-center"><span class="text-green-600 mr-1.5">■</span> Blog & content management</li>
+                                </ul>
+                                <div class="ml-7 mb-3 bg-green-50/80 rounded p-2 border border-green-100">
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-green-700 mb-1">Why Choose This</p>
+                                    <ul class="text-[11px] text-slate-600 space-y-0.5">
+                                        <li>Add new pages, blog posts, promos without a developer</li>
+                                        <li>Visual editor — type and publish like WordPress</li>
+                                        <li>Built on Next.js — the same tech used by Nike, Netflix, Uber</li>
+                                        <li>SEO benefits of server-side rendering (faster Google indexing)</li>
+                                        <li>Scales as you add more locations or services</li>
+                                    </ul>
+                                </div>
+                                <div class="ml-7">
+                                    <span class="text-sm line-through text-brand-accent font-medium">$4,500</span>
+                                    <span class="text-2xl font-heading font-black text-slate-900 ml-2">$978</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -424,7 +471,7 @@
                                 <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Monthly minor updates</li>
                                 <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Server & plugin maintenance</li>
                                 <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Priority email support</li>
-                                <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Cancel anytime</li>
+                                <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Cancel anytime — 30 days written notice</li>
                             </ul>
                         </div>
                         <div class="md:w-32 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 pl-0 md:pl-6 shrink-0">
@@ -448,9 +495,9 @@
                                 <div id="line-website" class="flex justify-between items-start transition-all duration-300">
                                     <div>
                                         <p class="font-bold text-slate-900 text-sm uppercase">Local SEO Website</p>
-                                        <p class="text-xs text-slate-500">One-Time Build</p>
+                                        <p id="line-website-tier" class="text-xs text-slate-500">HTML + PHP — One-Time Build</p>
                                     </div>
-                                    <p class="font-bold text-slate-900">$500</p>
+                                    <p id="line-website-price" class="font-bold text-slate-900">$500</p>
                                 </div>
                                 <div id="line-store" class="flex justify-between items-start transition-all duration-300">
                                     <div>
@@ -509,6 +556,284 @@
         </div>
     </section>
 
+    <!-- Timeline & Milestones -->
+    <section class="py-12 bg-white border-b border-slate-200 relative z-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Project <span class="text-brand-blue">Timeline</span></h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2"></div>
+                <!-- Week 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10">
+                    <div class="md:w-1/2 md:text-right">
+                        <div class="bg-brand-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-2">Week 1</div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase">Discovery & Setup</h4>
+                        <p class="text-sm text-slate-600 mt-1">Gather brand assets, domain access, HostGator credentials. Finalize sitemap for all 40 pages. Set up development environment.</p>
+                    </div>
+                    <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center shrink-0 z-10 shadow-md">
+                        <span class="text-white font-heading font-bold text-sm">1</span>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+                <!-- Week 2-3 -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10">
+                    <div class="md:w-1/2 md:text-right md:order-1 order-2"></div>
+                    <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center shrink-0 z-10 shadow-md order-1 md:order-2">
+                        <span class="text-white font-heading font-bold text-sm">2</span>
+                    </div>
+                    <div class="md:w-1/2 order-3">
+                        <div class="bg-brand-blue text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-2">Weeks 2–3</div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase">Website Build</h4>
+                        <p class="text-sm text-slate-600 mt-1">40-page local SEO site goes live. Location pages, service pages, Schema markup, mobile responsive. Deployed to your HostGator.</p>
+                    </div>
+                </div>
+                <!-- Week 3-4 -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10">
+                    <div class="md:w-1/2 md:text-right">
+                        <div class="bg-green-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-2">Weeks 3–4</div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase">Affiliate Store</h4>
+                        <p class="text-sm text-slate-600 mt-1">Fundraiser store built and integrated. Custom pages for churches/nonprofits. Stripe checkout. Commission tracking live.</p>
+                    </div>
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center shrink-0 z-10 shadow-md">
+                        <span class="text-white font-heading font-bold text-sm">3</span>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+                <!-- Week 4-5 -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-10">
+                    <div class="md:w-1/2 md:text-right md:order-1 order-2"></div>
+                    <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center shrink-0 z-10 shadow-md order-1 md:order-2">
+                        <span class="text-white font-heading font-bold text-sm">4</span>
+                    </div>
+                    <div class="md:w-1/2 order-3">
+                        <div class="bg-slate-800 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-2">Weeks 4–5</div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase">Email Platform</h4>
+                        <p class="text-sm text-slate-600 mt-1">Self-hosted email system deployed on your domain. DNS configured. Template builder ready. Import existing contacts.</p>
+                    </div>
+                </div>
+                <!-- Week 5-6 -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                    <div class="md:w-1/2 md:text-right">
+                        <div class="bg-brand-cyan text-brand-dark text-xs font-bold uppercase tracking-widest px-3 py-1 rounded inline-block mb-2">Weeks 5–6</div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase">Testing & Handoff</h4>
+                        <p class="text-sm text-slate-600 mt-1">Full QA across all systems. Staff training. Documentation. 30-day SEO support period begins.</p>
+                    </div>
+                    <div class="w-10 h-10 bg-brand-cyan rounded-full flex items-center justify-center shrink-0 z-10 shadow-md">
+                        <span class="text-brand-dark font-heading font-bold text-sm">5</span>
+                    </div>
+                    <div class="md:w-1/2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scope of Work -->
+    <section class="py-12 bg-[#F4F7F9] border-b border-slate-200 relative z-20">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Scope of <span class="text-brand-blue">Work</span></h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Website Scope -->
+                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+                    <h3 class="font-heading font-bold text-xl text-brand-blue uppercase mb-4">Local SEO Website — 40 Pages</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-2">Pages Include:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5">
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> Homepage with conversion-optimized layout</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> 5 dedicated location pages (one per shop)</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> 10+ service pages (exterior wash, detail, ceramic, fleet, etc.)</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> 15+ local SEO landing pages (city/neighborhood targeting)</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> About, Contact, Pricing, Membership pages</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> Careers, FAQ, Gallery pages</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-2">Technical Details:</h4>
+                            <ul class="text-sm text-slate-600 space-y-1.5">
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> <strong>Option A:</strong> HTML/CSS + PHP — static, fast, lightweight</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> <strong>Option B:</strong> Next.js CMS — visual editor, manage content yourself</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> Schema.org structured data on all pages</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> Google Analytics & Search Console setup</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> Mobile-first responsive design</li>
+                                <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5">■</span> SSL certificate (included with HostGator)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Scope -->
+                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+                    <h3 class="font-heading font-bold text-xl text-green-600 uppercase mb-4">Affiliate Fundraiser Store</h3>
+                    <ul class="grid md:grid-cols-2 gap-2 text-sm text-slate-600">
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5">■</span> Custom e-commerce storefront for wholesale products</li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5">■</span> Branded fundraiser pages per organization</li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5">■</span> Stripe payment processing (embedded checkout)</li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5">■</span> Real-time commission tracking dashboard</li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5">■</span> Affiliate signup & approval workflow</li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5">■</span> Order management & fulfillment tracking</li>
+                    </ul>
+                </div>
+
+                <!-- Email Scope -->
+                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+                    <h3 class="font-heading font-bold text-xl text-slate-800 uppercase mb-4">Private Email Platform</h3>
+                    <ul class="grid md:grid-cols-2 gap-2 text-sm text-slate-600">
+                        <li class="flex items-start"><span class="text-slate-800 mr-2 mt-0.5">■</span> Deployed on Vercel, your domain (no SaaS dependency)</li>
+                        <li class="flex items-start"><span class="text-slate-800 mr-2 mt-0.5">■</span> Visual drag-and-drop template builder</li>
+                        <li class="flex items-start"><span class="text-slate-800 mr-2 mt-0.5">■</span> 50,000 emails/month capacity (~$20 via Amazon SES)</li>
+                        <li class="flex items-start"><span class="text-slate-800 mr-2 mt-0.5">■</span> Open rate & click tracking analytics</li>
+                        <li class="flex items-start"><span class="text-slate-800 mr-2 mt-0.5">■</span> Subscriber list management & segmentation</li>
+                        <li class="flex items-start"><span class="text-slate-800 mr-2 mt-0.5">■</span> Contact import from existing lists</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosting Details -->
+    <section class="py-12 bg-white border-b border-slate-200 relative z-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Hosting & <span class="text-brand-blue">Infrastructure</span></h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">Where It Lives</h4>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> <strong>Website & Store:</strong> Deployed to your existing HostGator account</li>
+                            <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> <strong>Email Platform:</strong> Deployed on Vercel, sends via Amazon SES</li>
+                            <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> <strong>Domain:</strong> Your domain, your DNS, your property</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">What You Pay (Monthly)</h4>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> <strong>HostGator:</strong> Your existing plan — $0 extra</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> <strong>Amazon SES:</strong> ~$20/mo for 50k emails</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> <strong>Stripe Fees:</strong> 2.9% + 30¢ per transaction (standard)</li>
+                            <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> <strong>Total ongoing:</strong> ~$20/mo (no platform fees ever)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-blue-200 text-center">
+                    <p class="text-sm text-slate-700 font-bold">You own every line of code, every asset, every database. If we part ways tomorrow, everything stays with you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms & Agreement -->
+    <section class="py-12 bg-[#F4F7F9] border-b border-slate-200 relative z-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Terms & <span class="text-brand-blue">Agreement</span></h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-xl p-8 shadow-sm space-y-6">
+                <!-- Payment Terms -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">Payment Terms</h4>
+                    <ul class="text-sm text-slate-700 space-y-2">
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">1.</span> <strong>50% deposit</strong> due upon acceptance to begin work.</li>
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">2.</span> <strong>Remaining 50%</strong> due upon project completion and before final deployment.</li>
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">3.</span> Payment via Stripe invoice (credit card or ACH accepted).</li>
+                    </ul>
+                </div>
+                <!-- Revisions -->
+                <div class="pt-4 border-t border-slate-100">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">Revisions</h4>
+                    <ul class="text-sm text-slate-700 space-y-2">
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> <strong>2 rounds of revisions</strong> included per deliverable.</li>
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> Additional revisions billed at $75/hour.</li>
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> Revision requests must be submitted within 14 days of deliverable completion.</li>
+                    </ul>
+                </div>
+                <!-- Ownership -->
+                <div class="pt-4 border-t border-slate-100">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">Intellectual Property & Ownership</h4>
+                    <ul class="text-sm text-slate-700 space-y-2">
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> Upon final payment, <strong>all source code, assets, and databases transfer 100% to Pro Wash.</strong></li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> TaggleFish retains no license, access, or usage rights.</li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-0.5 font-bold">■</span> You are free to modify, resell, or transfer the code as you see fit.</li>
+                    </ul>
+                </div>
+                <!-- Support Retainer -->
+                <div class="pt-4 border-t border-slate-100">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">Priority Support Retainer (Optional)</h4>
+                    <ul class="text-sm text-slate-700 space-y-2">
+                        <li class="flex items-start"><span class="text-orange-500 mr-2 mt-0.5 font-bold">■</span> $75/month, billed monthly via Stripe.</li>
+                        <li class="flex items-start"><span class="text-orange-500 mr-2 mt-0.5 font-bold">■</span> Cancel anytime with <strong>30 days written notice</strong> (email is fine).</li>
+                        <li class="flex items-start"><span class="text-orange-500 mr-2 mt-0.5 font-bold">■</span> Covers minor updates, server maintenance, and priority email support.</li>
+                        <li class="flex items-start"><span class="text-orange-500 mr-2 mt-0.5 font-bold">■</span> Does not cover major feature additions or redesigns (quoted separately).</li>
+                    </ul>
+                </div>
+                <!-- Timeline -->
+                <div class="pt-4 border-t border-slate-100">
+                    <h4 class="font-heading font-bold text-lg text-slate-900 uppercase mb-3">Project Timeline</h4>
+                    <ul class="text-sm text-slate-700 space-y-2">
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> Estimated delivery: <strong>5–6 weeks</strong> from deposit receipt.</li>
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> Timeline assumes timely delivery of brand assets and feedback from Pro Wash.</li>
+                        <li class="flex items-start"><span class="text-brand-blue mr-2 mt-0.5 font-bold">■</span> Delays caused by client response times extend the timeline accordingly.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature / Acceptance -->
+    <section class="py-12 bg-white relative z-20">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-heading font-black text-slate-900 uppercase tracking-tight">Accept <span class="text-brand-blue">Proposal</span></h2>
+                <p class="text-slate-600 mt-2">By signing below, you agree to the scope, terms, and pricing outlined in this proposal.</p>
+                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
+            <div class="bg-slate-50 border-2 border-slate-200 rounded-xl p-8">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Client Name</label>
+                        <input type="text" id="sig-name" placeholder="Full legal name" class="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 font-medium focus:border-brand-blue focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Email Address</label>
+                        <input type="email" id="sig-email" placeholder="your@email.com" class="w-full border-2 border-slate-200 rounded-lg px-4 py-3 text-slate-900 font-medium focus:border-brand-blue focus:outline-none transition-colors">
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Signature</label>
+                    <div class="border-2 border-dashed border-slate-300 rounded-lg h-28 flex items-center justify-center bg-white cursor-pointer hover:border-brand-blue transition-colors" onclick="this.innerHTML = '<p class=\'text-brand-blue font-heading font-bold text-2xl italic\'>Signed Digitally</p>'">
+                        <p class="text-slate-400 text-sm">Click to sign</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3 mb-6">
+                    <input type="checkbox" id="accept-terms" class="w-5 h-5 mt-0.5 rounded border-slate-300 text-brand-blue focus:ring-brand-blue cursor-pointer">
+                    <label for="accept-terms" class="text-sm text-slate-700 cursor-pointer">
+                        I have reviewed and agree to the <strong>scope of work, payment terms, revision policy, IP transfer,</strong> and <strong>support retainer terms</strong> outlined in this proposal. I understand a 50% deposit is due to begin work.
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button onclick="submitAcceptance()" class="bg-brand-blue hover:bg-[#003B93] text-white font-bold font-heading text-lg py-4 px-12 rounded-lg transition-all duration-300 shadow-md uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed" id="accept-btn">
+                        Accept Proposal & Request Invoice
+                    </button>
+                    <p class="text-xs text-slate-500 mt-3">You will receive a Stripe invoice for the 50% deposit after acceptance.</p>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <p class="text-xs text-slate-400 uppercase tracking-wider font-bold">This proposal is valid for 30 days from date of delivery.</p>
+                <p class="text-xs text-slate-400 mt-1">Prepared March 2026 by TaggleFish</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-slate-900 py-8 text-center relative z-20 border-t border-slate-800">
         <div class="container mx-auto px-4">
@@ -522,10 +847,15 @@
     <script>
         // State management
         const cart = {
-            website: { active: true, price: 500, type: 'onetime' },
+            website: { active: true, price: 500, type: 'onetime', tier: 'html' },
             store: { active: true, price: 275, type: 'onetime' },
             email: { active: true, price: 750, type: 'onetime' },
             support: { active: false, price: 75, type: 'monthly' }
+        };
+
+        const websiteTiers = {
+            html: { price: 500, label: 'HTML + PHP — One-Time Build' },
+            cms: { price: 978, label: 'Custom CMS (Next.js) — One-Time Build' }
         };
 
         // Format currency helper
@@ -538,36 +868,51 @@
             }).format(amount);
         };
 
-        // Toggle item
-        function toggleItem(itemId) {
-            cart[itemId].active = !cart[itemId].active;
-            
-            // Update Card UI
-            const cardEl = document.getElementById(`card-${itemId}`);
-            if (cart[itemId].active) {
-                cardEl.classList.add('selected');
-                cardEl.classList.remove('not-selected');
+        // Website tier selector
+        function selectWebsiteTier(tier) {
+            cart.website.tier = tier;
+            cart.website.price = websiteTiers[tier].price;
+
+            // Update tier card UI
+            const htmlTier = document.getElementById('tier-website-html');
+            const cmsTier = document.getElementById('tier-website-cms');
+            const radioHtml = document.getElementById('radio-html');
+            const radioCms = document.getElementById('radio-cms');
+
+            if (tier === 'html') {
+                htmlTier.className = 'border-2 border-brand-blue bg-blue-50/50 rounded-lg p-4 cursor-pointer transition-all';
+                cmsTier.className = 'border-2 border-slate-200 bg-white rounded-lg p-4 cursor-pointer transition-all hover:border-slate-300';
+                radioHtml.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-brand-blue"></div>';
+                radioHtml.className = 'w-5 h-5 rounded-full border-2 border-brand-blue flex items-center justify-center';
+                radioCms.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>';
+                radioCms.className = 'w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center';
             } else {
-                cardEl.classList.remove('selected');
-                cardEl.classList.add('not-selected');
+                cmsTier.className = 'border-2 border-brand-blue bg-blue-50/50 rounded-lg p-4 cursor-pointer transition-all';
+                htmlTier.className = 'border-2 border-slate-200 bg-white rounded-lg p-4 cursor-pointer transition-all hover:border-slate-300';
+                radioCms.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-brand-blue"></div>';
+                radioCms.className = 'w-5 h-5 rounded-full border-2 border-brand-blue flex items-center justify-center';
+                radioHtml.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>';
+                radioHtml.className = 'w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center';
             }
 
-            // Update Summary Lines UI
-            const lineEl = document.getElementById(`line-${itemId}`);
-            if (cart[itemId].active) {
-                lineEl.style.display = 'flex';
-                // Small delay to allow display:flex to apply before transitioning opacity
-                setTimeout(() => lineEl.style.opacity = '1', 10);
-            } else {
-                lineEl.style.opacity = '0';
-                setTimeout(() => lineEl.style.display = 'none', 300);
-            }
+            // Update summary line
+            document.getElementById('line-website-tier').innerText = websiteTiers[tier].label;
+            document.getElementById('line-website-price').innerText = formatMoney(websiteTiers[tier].price);
 
-            // Calculate Totals
+            // Also make sure website is active
+            if (!cart.website.active) {
+                toggleItem('website');
+            } else {
+                recalcTotals();
+            }
+        }
+
+        // Recalculate totals
+        function recalcTotals() {
             let totalOneTime = 0;
             let totalMonthly = 0;
             let activeCount = 0;
-            
+
             for (const key in cart) {
                 if (cart[key].active) {
                     if (cart[key].type === 'monthly') {
@@ -579,12 +924,11 @@
                 }
             }
 
-            // Update Total UI
             document.getElementById('total-price').innerText = formatMoney(totalOneTime);
-            
+
             const monthlyContainer = document.getElementById('monthly-recurring-container');
             const monthlyPrice = document.getElementById('monthly-price');
-            
+
             if (totalMonthly > 0) {
                 monthlyContainer.classList.remove('hidden');
                 monthlyPrice.innerText = formatMoney(totalMonthly) + '/mo';
@@ -592,10 +936,9 @@
                 monthlyContainer.classList.add('hidden');
             }
 
-            // Handle Empty State & Button State
             const btn = document.getElementById('checkout-btn');
             const emptyState = document.getElementById('empty-state');
-            
+
             if (activeCount === 0) {
                 emptyState.style.display = 'block';
                 btn.disabled = true;
@@ -605,23 +948,87 @@
                 emptyState.style.display = 'none';
                 btn.disabled = false;
                 btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                btn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2H9v2H7v-2H5.5C4.67 15 4 14.33 4 13.5v-3C4 9.67 4.67 9 5.5 9H9V7h2v2h2v2H9v2h2.5c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5H11z"/></svg> Checkout via Stripe`;
+                btn.innerHTML = '<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2H9v2H7v-2H5.5C4.67 15 4 14.33 4 13.5v-3C4 9.67 4.67 9 5.5 9H9V7h2v2h2v2H9v2h2.5c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5H11z"/></svg> Checkout via Stripe';
             }
         }
 
-        // Dummy Checkout Handler
+        // Toggle item
+        function toggleItem(itemId) {
+            cart[itemId].active = !cart[itemId].active;
+
+            // Update Card UI
+            const cardEl = document.getElementById('card-' + itemId);
+            if (cart[itemId].active) {
+                cardEl.classList.add('selected');
+                cardEl.classList.remove('not-selected');
+            } else {
+                cardEl.classList.remove('selected');
+                cardEl.classList.add('not-selected');
+            }
+
+            // Update Summary Lines UI
+            const lineEl = document.getElementById('line-' + itemId);
+            if (cart[itemId].active) {
+                lineEl.style.display = 'flex';
+                setTimeout(function() { lineEl.style.opacity = '1'; }, 10);
+            } else {
+                lineEl.style.opacity = '0';
+                setTimeout(function() { lineEl.style.display = 'none'; }, 300);
+            }
+
+            recalcTotals();
+        }
+
+        // Checkout Handler
         function processCheckout() {
-            let selectedItems = [];
+            const selectedItems = [];
             let oneTime = 0;
             let monthly = 0;
             for (const key in cart) {
                 if (cart[key].active) {
-                    selectedItems.push(key);
+                    let label = key;
+                    if (key === 'website') label = 'website (' + cart.website.tier + ')';
+                    selectedItems.push(label);
                     if (cart[key].type === 'monthly') monthly += cart[key].price;
                     else oneTime += cart[key].price;
                 }
             }
-            alert(`Redirecting to Stripe Checkout...\n\nItems: ${selectedItems.join(', ')}\nTotal Due Today: $${oneTime}\nMonthly Recurring: $${monthly}/mo`);
+            alert('Redirecting to Stripe Checkout...\n\nItems: ' + selectedItems.join(', ') + '\nTotal Due Today: $' + oneTime + '\nMonthly Recurring: $' + monthly + '/mo');
+        }
+
+        // Acceptance form handler
+        function submitAcceptance() {
+            const name = document.getElementById('sig-name').value.trim();
+            const email = document.getElementById('sig-email').value.trim();
+            const terms = document.getElementById('accept-terms').checked;
+
+            if (!name || !email || !terms) {
+                alert('Please fill in your name, email, and accept the terms to continue.');
+                return;
+            }
+
+            const btn = document.getElementById('accept-btn');
+            btn.disabled = true;
+            btn.innerText = 'Submitting...';
+
+            // Build summary of selected items
+            const items = [];
+            for (const key in cart) {
+                if (cart[key].active) {
+                    let label = key;
+                    if (key === 'website') label = 'Website (' + cart.website.tier.toUpperCase() + ' - $' + cart.website.price + ')';
+                    else label = key + ' ($' + cart[key].price + (cart[key].type === 'monthly' ? '/mo' : '') + ')';
+                    items.push(label);
+                }
+            }
+
+            // For now, show confirmation — replace with real Stripe invoice call
+            setTimeout(function() {
+                btn.innerText = 'Proposal Accepted';
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+                btn.classList.remove('bg-brand-blue', 'hover:bg-[#003B93]');
+                alert('Proposal accepted by ' + name + '!\n\nSelected: ' + items.join(', ') + '\n\nA Stripe invoice for the 50% deposit will be sent to ' + email + '.');
+            }, 800);
         }
     </script>
 
