@@ -81,9 +81,25 @@
         .highlight-text { background-color: rgba(0, 229, 255, 0.15); font-weight: 700; padding: 0 4px; border-radius: 2px; }
 
         /* Service tabs */
-        .service-tab { opacity: 0.6; }
-        .service-tab.active-tab { opacity: 1; background: rgba(255,255,255,0.08); }
-        .service-tab:hover { opacity: 0.85; background: rgba(255,255,255,0.05); }
+        .service-tab {
+            transition: all 0.2s ease;
+            border: 2px solid #E2E8F0;
+            background: #FFFFFF;
+        }
+        .service-tab.active-tab {
+            background: #0A1628;
+            border-color: #0A1628;
+            color: white;
+        }
+        .service-tab.active-tab .tab-title { color: white; }
+        .service-tab.active-tab .tab-sub { color: rgba(255,255,255,0.6); }
+        .service-tab.active-tab .tab-icon-wrap { background: rgba(255,255,255,0.15); }
+        .service-tab.active-tab .tab-icon-wrap svg { color: white; }
+        .service-tab.active-tab .tab-arrow { opacity: 1; }
+        .service-tab:not(.active-tab):hover {
+            border-color: #CBD5E1;
+            background: #F8FAFC;
+        }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden selection:bg-brand-blue selection:text-white bg-brand-offwhite">
@@ -157,63 +173,69 @@
                 </div>
 
                 <!-- Tabbed Content Box -->
-                <div class="flex flex-col md:flex-row bg-white border border-slate-200 rounded-xl shadow-md overflow-hidden min-h-[340px]">
-                    <!-- Left Tabs -->
-                    <div class="md:w-64 shrink-0 bg-slate-900 flex md:flex-col">
-                        <button onclick="switchTab('website')" id="tab-website" class="service-tab active-tab flex items-center gap-3 px-5 py-5 text-left w-full transition-all duration-200 border-b border-white/10 group">
-                            <div class="w-10 h-10 rounded-lg bg-brand-blue/20 flex items-center justify-center shrink-0 group-[.active-tab]:bg-brand-blue transition-colors">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+                    <!-- Left Side: Tabs -->
+                    <div class="lg:w-[320px] shrink-0 space-y-4">
+                        <button onclick="switchTab('website')" id="tab-website" class="service-tab active-tab w-full rounded-xl px-6 py-6 text-left flex items-center gap-4 cursor-pointer">
+                            <div class="tab-icon-wrap w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 transition-colors">
+                                <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                             </div>
-                            <div>
-                                <span class="font-heading font-bold text-sm uppercase text-white block leading-tight">The Local Website</span>
-                                <span class="text-[11px] text-slate-400 leading-tight">40-Page SEO Engine</span>
+                            <div class="flex-grow">
+                                <span class="tab-title font-heading font-black text-base uppercase text-[#0A1628] block leading-tight tracking-tight">The Local Website</span>
+                                <span class="tab-sub text-xs text-slate-400 mt-0.5 block">40-Page SEO Engine</span>
                             </div>
+                            <svg class="tab-arrow w-5 h-5 text-white opacity-0 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
-                        <button onclick="switchTab('store')" id="tab-store" class="service-tab flex items-center gap-3 px-5 py-5 text-left w-full transition-all duration-200 border-b border-white/10 group">
-                            <div class="w-10 h-10 rounded-lg bg-green-600/20 flex items-center justify-center shrink-0 group-[.active-tab]:bg-green-600 transition-colors">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <button onclick="switchTab('store')" id="tab-store" class="service-tab w-full rounded-xl px-6 py-6 text-left flex items-center gap-4 cursor-pointer">
+                            <div class="tab-icon-wrap w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center shrink-0 transition-colors">
+                                <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                             </div>
-                            <div>
-                                <span class="font-heading font-bold text-sm uppercase text-white block leading-tight">Fundraiser Store</span>
-                                <span class="text-[11px] text-slate-400 leading-tight">Shopify + Affiliates</span>
+                            <div class="flex-grow">
+                                <span class="tab-title font-heading font-black text-base uppercase text-[#0A1628] block leading-tight tracking-tight">Fundraiser Store</span>
+                                <span class="tab-sub text-xs text-slate-400 mt-0.5 block">Shopify + Affiliates</span>
                             </div>
+                            <svg class="tab-arrow w-5 h-5 text-white opacity-0 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
-                        <button onclick="switchTab('mailchimp')" id="tab-mailchimp" class="service-tab flex items-center gap-3 px-5 py-5 text-left w-full transition-all duration-200 group">
-                            <div class="w-10 h-10 rounded-lg bg-slate-600/30 flex items-center justify-center shrink-0 group-[.active-tab]:bg-slate-600 transition-colors">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <button onclick="switchTab('mailchimp')" id="tab-mailchimp" class="service-tab w-full rounded-xl px-6 py-6 text-left flex items-center gap-4 cursor-pointer">
+                            <div class="tab-icon-wrap w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center shrink-0 transition-colors">
+                                <svg class="w-7 h-7 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
-                            <div>
-                                <span class="font-heading font-bold text-sm uppercase text-white block leading-tight">Mailchimp Killer</span>
-                                <span class="text-[11px] text-slate-400 leading-tight">Own Your Email List</span>
+                            <div class="flex-grow">
+                                <span class="tab-title font-heading font-black text-base uppercase text-[#0A1628] block leading-tight tracking-tight">Mailchimp Killer</span>
+                                <span class="tab-sub text-xs text-slate-400 mt-0.5 block">Own Your Email List</span>
                             </div>
+                            <svg class="tab-arrow w-5 h-5 text-white opacity-0 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
-                    <!-- Right Content -->
-                    <div class="flex-grow p-8 md:p-10 relative">
+                    <!-- Right Side: Content Panel -->
+                    <div class="flex-grow bg-white border border-slate-200 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] p-10 md:p-14 min-h-[380px]">
                         <div id="content-website" class="tab-content">
-                            <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">The Local Website</h3>
-                            <p class="mb-4 text-slate-800 leading-relaxed">
-                                Right now, a massive amount of your activity and inbound calls come directly from your Google Business Profile (GMB). We are going to capitalize on that by building a 40-page Local SEO website dedicated to perfectly <strong class="text-brand-blue">mirroring your GMB categories, services, and local reach</strong>.
+                            <h3 class="text-3xl md:text-4xl font-heading font-black text-[#0A1628] mb-2 uppercase tracking-tight leading-tight">The Local Website</h3>
+                            <div class="w-16 h-1 bg-brand-blue mb-6"></div>
+                            <p class="mb-5 text-slate-600 text-lg leading-relaxed">
+                                Right now, a massive amount of your activity and inbound calls come directly from your Google Business Profile (GMB). We are going to capitalize on that by building a 40-page Local SEO website dedicated to perfectly <strong class="text-[#0A1628]">mirroring your GMB categories, services, and local reach</strong>.
                             </p>
-                            <p class="text-slate-800 leading-relaxed">
+                            <p class="text-slate-600 text-lg leading-relaxed">
                                 By matching exact local search intent, we push competitors off the first page of Google. This site acts as an engine to rank higher and drive daily calls and visits to all 5 locations. You won't just compete—you will own the market.
                             </p>
                         </div>
                         <div id="content-store" class="tab-content hidden">
-                            <h3 class="text-2xl font-heading font-black text-green-600 mb-4">Your Own Shopify & Fundraising App</h3>
-                            <p class="mb-4 text-slate-800 leading-relaxed">
-                                We are building your own robust e-commerce storefront, but with a massive community twist. We take your signature <strong class="text-green-700">wholesale products</strong>—like your premium car wax and detail kits—and plug them into a custom affiliate fundraiser system.
+                            <h3 class="text-3xl md:text-4xl font-heading font-black text-[#0A1628] mb-2 uppercase tracking-tight leading-tight">Your Own Shopify &<br>Fundraising App</h3>
+                            <div class="w-16 h-1 bg-green-500 mb-6"></div>
+                            <p class="mb-5 text-slate-600 text-lg leading-relaxed">
+                                We are building your own robust e-commerce storefront, but with a massive community twist. We take your signature <strong class="text-[#0A1628]">wholesale products</strong>—like your premium car wax and detail kits—and plug them into a custom affiliate fundraiser system.
                             </p>
-                            <p class="text-slate-800 leading-relaxed">
+                            <p class="text-slate-600 text-lg leading-relaxed">
                                 Local churches, schools, and nonprofits get their own branded pages to sell these products to raise funds. They hit their financial goals, while acting as a massive, zero-ad-spend sales force constantly promoting the Pro Wash brand.
                             </p>
                         </div>
                         <div id="content-mailchimp" class="tab-content hidden">
-                            <h3 class="text-2xl font-heading font-black text-slate-800 mb-4">The Mailchimp Killer</h3>
-                            <p class="mb-4 text-slate-800 leading-relaxed">
-                                Every month, local franchises fall into the trap of paying upwards of $300/month to companies like Mailchimp just for the privilege of emailing customers they already earned. If you stop paying them tomorrow, you lose your audience. <strong class="text-slate-900">That means you don't own your business—they do.</strong>
+                            <h3 class="text-3xl md:text-4xl font-heading font-black text-[#0A1628] mb-2 uppercase tracking-tight leading-tight">The Mailchimp Killer</h3>
+                            <div class="w-16 h-1 bg-slate-800 mb-6"></div>
+                            <p class="mb-5 text-slate-600 text-lg leading-relaxed">
+                                Every month, local franchises fall into the trap of paying upwards of $300/month to companies like Mailchimp just for the privilege of emailing customers they already earned. If you stop paying them tomorrow, you lose your audience. <strong class="text-[#0A1628]">That means you don't own your business—they do.</strong>
                             </p>
-                            <p class="text-slate-800 leading-relaxed">
+                            <p class="text-slate-600 text-lg leading-relaxed">
                                 We are replacing this with a fully private, self-hosted email marketing platform capable of blasting 50,000 emails a month for roughly $20. You own the database, the lists, and the infrastructure.
                             </p>
                         </div>
