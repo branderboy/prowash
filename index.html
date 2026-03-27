@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Wash | Digital Growth Package</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0056D2', /* Deep corporate blue */
+                            cyan: '#00E5FF',
+                            dark: '#0A0F1C',
+                            offwhite: '#F4F7F9',
+                            stripe: '#635BFF',
+                            accent: '#FF3B30'
+                        }
+                    },
+                    boxShadow: {
+                        'franchise': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'franchise-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F4F7F9; color: #1E293B; }
+        
+        /* Smooth transitions for selectable cards */
+        .selectable-card {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .selectable-card.selected {
+            border-color: #0056D2;
+            box-shadow: 0 0 0 2px rgba(0, 86, 210, 0.2);
+            background-color: #F8FAFC;
+        }
+        .selectable-card:not(.selected) {
+            opacity: 0.7;
+            border-color: #E2E8F0;
+            background-color: #FFFFFF;
+            transform: scale(0.98);
+        }
+        
+        /* Dark Theme Bubble Accent (Subtle) */
+        @keyframes float {
+            0% { transform: translateY(50px) scale(0.9); opacity: 0; }
+            20% { opacity: 0.4; }
+            80% { opacity: 0.2; }
+            100% { transform: translateY(-500px) scale(1.1); opacity: 0; }
+        }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), rgba(0, 229, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: float infinite linear;
+            z-index: 1;
+        }
+
+        /* Checkbox UI animation */
+        .check-icon { transition: all 0.2s; }
+        .selected .check-icon { background-color: #0056D2; border-color: #0056D2; }
+        .selected .check-svg { opacity: 1; transform: scale(1); }
+        .not-selected .check-icon { background-color: #F1F5F9; border-color: #CBD5E1; }
+        .not-selected .check-svg { opacity: 0; transform: scale(0.5); }
+        
+        /* Letter typography */
+        .sales-letter p { margin-bottom: 1.5rem; }
+        .highlight-text { background-color: rgba(0, 229, 255, 0.15); font-weight: 700; padding: 0 4px; border-radius: 2px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-brand-blue selection:text-white bg-brand-offwhite">
+
+    <div class="bg-brand-dark">
+        <!-- Top Corporate Bar -->
+        <div class="bg-[#003B93] text-white font-semibold text-center py-2 text-xs uppercase tracking-[0.2em] relative z-20">
+            Secure Digital Infrastructure Proposal // Pro Wash
+        </div>
+
+        <!-- Header -->
+        <header class="container mx-auto px-6 py-4 flex justify-between items-center relative z-20 border-b border-white/10">
+            <div class="text-2xl font-heading font-black tracking-tight text-white uppercase flex items-center gap-2">
+                Pro Wash
+            </div>
+            <div class="text-xs font-medium text-slate-400 uppercase tracking-wider hidden md:block">
+                Prepared by <span class="text-white font-bold">TaggleFish</span> | Mar 2026
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative pt-12 pb-16 overflow-hidden min-h-[50vh] flex flex-col justify-center border-b-[8px] border-brand-blue">
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="bubble w-24 h-24 left-[15%]" style="animation-delay: 1s; animation-duration: 15s;"></div>
+                <div class="bubble w-16 h-16 left-[45%]" style="animation-delay: 3s; animation-duration: 12s;"></div>
+                <div class="bubble w-32 h-32 left-[75%]" style="animation-delay: 0s; animation-duration: 18s;"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10 text-center max-w-5xl">
+                <div class="inline-flex items-center gap-2 border border-blue-500/30 bg-blue-500/10 text-white px-4 py-1.5 rounded-sm text-xs font-bold uppercase tracking-widest mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                    Systems Architecture Overview
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-heading font-black leading-tight mb-6 uppercase tracking-tight text-white">
+                    Stop Renting Your Audience.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-[#0056D2]">Own Your Digital Assets.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-3xl mx-auto font-normal leading-relaxed">
+                    A complete digital growth engine designed to dominate local search, replace expensive software like Mailchimp, and build a self-sustaining sales network. <strong class="text-white font-bold border-b border-brand-cyan">Zero monthly platform fees.</strong>
+                </p>
+
+                <a href="#the-story" class="inline-flex items-center justify-center bg-white text-brand-dark font-black font-heading text-lg md:text-xl py-4 px-8 rounded shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-brand-cyan hover:text-brand-dark transition-all duration-300 relative z-20 group">
+                    Read The Strategy Outline
+                    <svg class="w-6 h-6 ml-2 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- The Story / VSL Replacement (Direct Response Copy) -->
+    <section id="the-story" class="py-12 bg-white border-b border-slate-200 relative z-20">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-tight">
+                    You own your equipment. You own your shops.<br>
+                    <span class="text-brand-blue">Why are you renting your customers?</span>
+                </h2>
+                <div class="w-24 h-1.5 bg-brand-blue mx-auto mt-6"></div>
+            </div>
+
+            <div class="sales-letter text-lg text-slate-700 leading-relaxed font-sans space-y-10">
+                <div>
+                    <p class="text-2xl font-bold text-slate-900 mb-4 border-b-2 border-slate-100 pb-4">
+                        It's time to completely own your car wash market.
+                    </p>
+                    <p class="font-medium text-slate-800">
+                        You’ve done the hard part. You've scaled to 5 physical locations and built a brand in Prince George's County and DC that people actually trust with their vehicles. Now, it's about turning that foundation into an unstoppable local monopoly using a Closed-Loop Digital Ecosystem.
+                    </p>
+                </div>
+
+                <!-- 1. The Local Website -->
+                <div>
+                    <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">The Local Website</h3>
+                    <div class="bg-blue-50 border-l-4 border-l-brand-blue p-6 rounded-r-lg shadow-sm">
+                        <p class="mb-3 text-slate-800">
+                            Right now, a massive amount of your activity and inbound calls come directly from your Google Business Profile (GMB). We are going to capitalize on that by building a 40-page Local SEO website dedicated to perfectly <strong class="text-brand-blue">mirroring your GMB categories, services, and local reach</strong>.
+                        </p>
+                        <p class="text-slate-800">
+                            By matching exact local search intent, we push competitors off the first page of Google. This site acts as an engine to rank higher and drive daily calls and visits to all 5 locations. You won't just compete—you will own the market.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Shopify & Fundraising App -->
+                <div>
+                    <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">Your Own Shopify & Fundraising App</h3>
+                    <div class="bg-green-50 border-l-4 border-l-green-500 p-6 rounded-r-lg shadow-sm">
+                        <p class="mb-3 text-slate-800">
+                            We are building your own robust e-commerce storefront, but with a massive community twist. We take your signature <strong class="text-green-700">wholesale products</strong>—like your premium car wax and detail kits—and plug them into a custom affiliate fundraiser system.
+                        </p>
+                        <p class="text-slate-800">
+                            Local churches, schools, and nonprofits get their own branded pages to sell these products to raise funds. They hit their financial goals, while acting as a massive, zero-ad-spend sales force constantly promoting the Pro Wash brand.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Mailchimp -->
+                <div>
+                    <h3 class="text-2xl font-heading font-black text-brand-blue mb-4">The Mailchimp Killer</h3>
+                    <div class="bg-slate-50 border-l-4 border-l-slate-800 p-6 rounded-r-lg shadow-sm">
+                        <p class="mb-3 text-slate-800">
+                            Every month, local franchises fall into the trap of paying upwards of $300/month to companies like Mailchimp just for the privilege of emailing customers they already earned. If you stop paying them tomorrow, you lose your audience. <strong class="text-slate-900">That means you don't own your business—they do.</strong>
+                        </p>
+                        <p class="text-slate-800">
+                            We are replacing this with a fully private, self-hosted email marketing platform capable of blasting 50,000 emails a month for roughly $20. You own the database, the lists, and the infrastructure.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="text-3xl md:text-4xl font-heading font-black text-slate-900 mt-16 pt-12 border-t border-slate-200 text-center leading-tight">This infrastructure is designed to do three things flawlessly:</p>
+
+                <div class="grid md:grid-cols-3 gap-6 my-10">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden text-center flex flex-col items-center">
+                        <svg class="w-8 h-8 text-brand-blue mb-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        <strong class="text-brand-blue font-heading uppercase tracking-widest text-lg mb-3">1. Acquisition</strong>
+                        <p class="text-slate-600 text-sm leading-relaxed">A 40-page Local SEO machine built to push competitors off the first page of Google.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden text-center flex flex-col items-center">
+                        <svg class="w-8 h-8 text-brand-blue mb-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        <strong class="text-brand-blue font-heading uppercase tracking-widest text-lg mb-3">2. Community</strong>
+                        <p class="text-slate-600 text-sm leading-relaxed">An Affiliate Store that turns local churches and nonprofits into your personal sales team.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative group overflow-hidden text-center flex flex-col items-center">
+                        <svg class="w-8 h-8 text-brand-blue mb-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        <strong class="text-brand-blue font-heading uppercase tracking-widest text-lg mb-3">3. Retention</strong>
+                        <p class="text-slate-600 text-sm leading-relaxed">A self-hosted email platform capable of blasting 50,000 emails/mo for ~$20.</p>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 p-8 border-2 border-green-200 rounded-xl text-center shadow-md my-12">
+                    <p class="font-black font-heading text-2xl md:text-4xl text-slate-900 leading-snug">
+                        You own all three systems outright. <br class="hidden md:block" />
+                        <span class="text-green-700">Zero monthly platform fees.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Locations Setup -->
+    <section class="py-10 bg-[#F8FAFC] border-b border-slate-200 relative z-20">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-heading font-bold text-slate-900 uppercase tracking-tight">Deploying Across <span class="text-brand-blue">All 5 Locations</span></h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                <!-- Location 1 -->
+                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                    <iframe src="https://maps.google.com/maps?q=29+Hampton+Park+Blvd,+Capitol+Heights,+MD+20743&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="p-5 flex items-start gap-4 flex-grow border-t border-slate-100">
+                        <div class="bg-[#003B93] text-white p-2 rounded shrink-0 shadow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 font-heading">Capitol Heights</h4>
+                            <p class="text-sm text-slate-600 mt-1 leading-relaxed">29 Hampton Park Blvd<br>Capitol Heights, MD 20743</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location 2 -->
+                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                    <iframe src="https://maps.google.com/maps?q=6311+Coventry+Way,+Clinton,+MD+20735&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="p-5 flex items-start gap-4 flex-grow border-t border-slate-100">
+                        <div class="bg-[#003B93] text-white p-2 rounded shrink-0 shadow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 font-heading">Clinton</h4>
+                            <p class="text-sm text-slate-600 mt-1 leading-relaxed">6311 Coventry Way<br>Clinton, MD 20735</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location 3 -->
+                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                    <iframe src="https://maps.google.com/maps?q=4406+Crain+Highway,+Bowie,+MD+20716&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="p-5 flex items-start gap-4 flex-grow border-t border-slate-100">
+                        <div class="bg-[#003B93] text-white p-2 rounded shrink-0 shadow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 font-heading">Bowie</h4>
+                            <p class="text-sm text-slate-600 mt-1 leading-relaxed">4406 Crain Highway<br>Bowie, MD 20716</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location 4 -->
+                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                    <iframe src="https://maps.google.com/maps?q=7538+Crain+Highway,+Upper+Marlboro,+MD&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="p-5 flex items-start gap-4 flex-grow border-t border-slate-100">
+                        <div class="bg-[#003B93] text-white p-2 rounded shrink-0 shadow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 font-heading">Upper Marlboro</h4>
+                            <p class="text-sm text-slate-600 mt-1 leading-relaxed">7538 Crain Highway<br>Upper Marlboro, MD</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Location 5 -->
+                <div class="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow lg:col-span-2 xl:col-span-1">
+                    <iframe src="https://maps.google.com/maps?q=1329+Kenilworth+Ave+NE,+Washington,+DC+20019&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="p-5 flex items-start gap-4 flex-grow border-t border-slate-100">
+                        <div class="bg-[#003B93] text-white p-2 rounded shrink-0 shadow">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 font-heading">Washington DC</h4>
+                            <p class="text-sm text-slate-600 mt-1 leading-relaxed">1329 Kenilworth Ave NE<br>Washington, DC 20019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Selection & Checkout Section -->
+    <section id="build-selection" class="py-12 relative bg-[#F4F7F9]">
+        <div class="container mx-auto px-4 max-w-7xl">
+            
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-heading font-black uppercase mb-3 text-slate-900">Select Your <span class="text-brand-blue">Growth Engines</span></h2>
+                <p class="text-lg text-slate-600 font-medium">Click to select the modules you want included in your custom build.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                
+                <!-- Selection Cards (Left 8 cols) -->
+                <div class="lg:col-span-8 space-y-6">
+                    
+                    <!-- Item 1: Website -->
+                    <div id="card-website" class="selectable-card selected bg-white border-2 rounded-xl p-6 relative flex flex-col md:flex-row gap-6 shadow-franchise" onclick="toggleItem('website')">
+                        <div class="absolute top-6 right-6 check-icon w-6 h-6 border-2 rounded flex items-center justify-center z-10">
+                            <svg class="check-svg w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-50 border border-blue-100 rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <div class="flex-grow pr-8">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="font-heading font-bold text-xl text-slate-900 uppercase">Local SEO Website</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">A custom 40-page site built to push competitors off the first page of Google across Prince George's County and DC.</p>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-700 font-medium">
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> 40 pages search-intent content</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Dedicated location pages</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Built-in Schema markup</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> 30 days SEO support</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-32 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 pl-0 md:pl-6 shrink-0">
+                            <div class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Build Fee</div>
+                            <div class="flex items-center md:items-end md:flex-col gap-2 md:gap-0">
+                                <div class="text-sm line-through text-brand-accent font-medium">$2,000</div>
+                                <div class="text-3xl font-heading font-black text-slate-900">$500</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Store -->
+                    <div id="card-store" class="selectable-card selected bg-white border-2 rounded-xl p-6 relative flex flex-col md:flex-row gap-6 shadow-franchise" onclick="toggleItem('store')">
+                        <div class="absolute top-6 right-6 check-icon w-6 h-6 border-2 rounded flex items-center justify-center z-10">
+                            <svg class="check-svg w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div class="w-16 h-16 bg-blue-50 border border-blue-100 rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        </div>
+                        <div class="flex-grow pr-8">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="font-heading font-bold text-xl text-slate-900 uppercase">Affiliate Fundraiser Store</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">A self-sustaining sales network. Let local nonprofits and churches sell your memberships and products for you automatically.</p>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-700 font-medium">
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Custom fundraiser pages</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Real-time commission tracking</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Embedded checkout</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Zero ad-spend community growth</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-32 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 pl-0 md:pl-6 shrink-0">
+                            <div class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Build Fee</div>
+                            <div class="flex items-center md:items-end md:flex-col gap-2 md:gap-0">
+                                <div class="text-sm line-through text-brand-accent font-medium">$1,500</div>
+                                <div class="text-3xl font-heading font-black text-slate-900">$275</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Email -->
+                    <div id="card-email" class="selectable-card selected bg-white border-2 rounded-xl p-6 relative flex flex-col md:flex-row gap-6 shadow-franchise overflow-hidden" onclick="toggleItem('email')">
+                        <div class="absolute top-0 right-0 bg-slate-900 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-bl-lg z-10">
+                            Replaces Mailchimp
+                        </div>
+                        <div class="absolute top-6 right-6 check-icon w-6 h-6 border-2 rounded flex items-center justify-center z-10">
+                            <svg class="check-svg w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div class="w-16 h-16 bg-slate-900 rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div class="flex-grow pr-8">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="font-heading font-bold text-xl text-slate-900 uppercase">Private Email Platform</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">Stop paying SaaS fees. Own your database and send up to 50k emails/mo for roughly $20 on your own domain.</p>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-700 font-medium">
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Visual template builder</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Open & click tracking</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2">■</span> Deployed on your domain</li>
+                                <li class="flex items-center"><span class="text-brand-blue mr-2 font-bold">■</span> Saves ~$3k/yr in SAAS fees</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-32 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 pl-0 md:pl-6 shrink-0">
+                            <div class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Build Fee</div>
+                            <div class="flex items-center md:items-end md:flex-col gap-2 md:gap-0">
+                                <div class="text-sm line-through text-brand-accent font-medium">$2,450</div>
+                                <div class="text-3xl font-heading font-black text-slate-900">$750</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Support (Optional) -->
+                    <div id="card-support" class="selectable-card not-selected bg-white border-2 rounded-xl p-6 relative flex flex-col md:flex-row gap-6 shadow-franchise" onclick="toggleItem('support')">
+                        <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-[10px] font-bold uppercase px-3 py-1 rounded-bl-lg z-10 border-b border-l border-slate-200">
+                            Optional Add-On
+                        </div>
+                        <div class="absolute top-6 right-6 check-icon w-6 h-6 border-2 rounded flex items-center justify-center z-10">
+                            <svg class="check-svg w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div class="w-16 h-16 bg-orange-50 border border-orange-100 rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <div class="flex-grow pr-8">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="font-heading font-bold text-xl text-slate-900 uppercase">Priority Support</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">Ensure everything runs perfectly after the 30-day launch window. We handle the technical maintenance so you can focus on running the shops.</p>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-slate-700 font-medium">
+                                <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Monthly minor updates</li>
+                                <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Server & plugin maintenance</li>
+                                <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Priority email support</li>
+                                <li class="flex items-center"><span class="text-orange-500 mr-2">■</span> Cancel anytime</li>
+                            </ul>
+                        </div>
+                        <div class="md:w-32 flex flex-col justify-center items-start md:items-end border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 pl-0 md:pl-6 shrink-0">
+                            <div class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Retainer</div>
+                            <div class="text-3xl font-heading font-black text-slate-900">$75<span class="text-sm text-slate-500 font-normal">/mo</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Sticky Order Summary (Right 4 cols) -->
+                <div class="lg:col-span-4">
+                    <div class="sticky top-6 bg-white border border-slate-200 rounded-xl shadow-xl overflow-hidden">
+                        <div class="bg-slate-900 p-5 border-b border-slate-800">
+                            <h3 class="text-lg font-bold text-white font-heading uppercase tracking-wide">Order Summary</h3>
+                        </div>
+                        
+                        <div class="p-6">
+                            <!-- Line Items -->
+                            <div class="space-y-4 mb-6 min-h-[140px]">
+                                <div id="line-website" class="flex justify-between items-start transition-all duration-300">
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-sm uppercase">Local SEO Website</p>
+                                        <p class="text-xs text-slate-500">One-Time Build</p>
+                                    </div>
+                                    <p class="font-bold text-slate-900">$500</p>
+                                </div>
+                                <div id="line-store" class="flex justify-between items-start transition-all duration-300">
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-sm uppercase">Affiliate Store</p>
+                                        <p class="text-xs text-slate-500">One-Time Build</p>
+                                    </div>
+                                    <p class="font-bold text-slate-900">$275</p>
+                                </div>
+                                <div id="line-email" class="flex justify-between items-start transition-all duration-300">
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-sm uppercase">Email Platform</p>
+                                        <p class="text-xs text-slate-500">One-Time Build</p>
+                                    </div>
+                                    <p class="font-bold text-slate-900">$750</p>
+                                </div>
+                                <div id="line-support" class="justify-between items-start transition-all duration-300" style="display: none; opacity: 0;">
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-sm uppercase">Priority Support</p>
+                                        <p class="text-xs text-slate-500">Monthly Retainer</p>
+                                    </div>
+                                    <p class="font-bold text-slate-900">$75<span class="text-xs text-slate-500 font-normal">/mo</span></p>
+                                </div>
+                                <div id="empty-state" class="hidden text-center text-slate-400 text-sm py-4 italic">
+                                    No modules selected.
+                                </div>
+                            </div>
+                            
+                            <!-- Totals -->
+                            <div class="border-t border-slate-200 pt-4 mb-6">
+                                <div class="flex justify-between items-end mb-1">
+                                    <p class="font-bold text-slate-500 text-sm uppercase tracking-wider">Total Due Today</p>
+                                    <p id="total-price" class="text-4xl font-black font-heading text-brand-blue">$1,525</p>
+                                </div>
+                                <div id="monthly-recurring-container" class="flex justify-between items-end mt-2 hidden">
+                                    <p class="font-bold text-slate-500 text-xs uppercase tracking-wider">Monthly Recurring</p>
+                                    <p id="monthly-price" class="text-lg font-bold font-heading text-brand-blue">$0</p>
+                                </div>
+                                <p class="text-[11px] text-slate-500 text-right uppercase tracking-wider font-bold text-brand-accent mt-3">Zero Platform Fees. You Own It.</p>
+                            </div>
+
+                            <!-- Stripe Checkout Button -->
+                            <button id="checkout-btn" onclick="processCheckout()" class="w-full bg-[#635BFF] hover:bg-[#4B45C6] text-white font-bold font-sans text-base py-4 px-6 rounded transition-all duration-300 shadow-md flex justify-center items-center group">
+                                <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2H9v2H7v-2H5.5C4.67 15 4 14.33 4 13.5v-3C4 9.67 4.67 9 5.5 9H9V7h2v2h2v2H9v2h2.5c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5H11z"/></svg>
+                                Checkout via Stripe
+                            </button>
+                            
+                            <div class="flex items-center justify-center mt-4 gap-2 text-slate-400">
+                                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500">Guaranteed Safe & Secure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-8 text-center relative z-20 border-t border-slate-800">
+        <div class="container mx-auto px-4">
+            <h4 class="font-heading font-black text-xl text-white mb-2 tracking-[0.2em] uppercase">TaggleFish</h4>
+            <p class="text-slate-400 text-sm mb-4">tagglefish.com  |  301-307-1414</p>
+            <p class="text-xs text-slate-600">© 2026 TaggleFish. Prepared exclusively for Pro Wash.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script>
+        // State management
+        const cart = {
+            website: { active: true, price: 500, type: 'onetime' },
+            store: { active: true, price: 275, type: 'onetime' },
+            email: { active: true, price: 750, type: 'onetime' },
+            support: { active: false, price: 75, type: 'monthly' }
+        };
+
+        // Format currency helper
+        const formatMoney = (amount) => {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        };
+
+        // Toggle item
+        function toggleItem(itemId) {
+            cart[itemId].active = !cart[itemId].active;
+            
+            // Update Card UI
+            const cardEl = document.getElementById(`card-${itemId}`);
+            if (cart[itemId].active) {
+                cardEl.classList.add('selected');
+                cardEl.classList.remove('not-selected');
+            } else {
+                cardEl.classList.remove('selected');
+                cardEl.classList.add('not-selected');
+            }
+
+            // Update Summary Lines UI
+            const lineEl = document.getElementById(`line-${itemId}`);
+            if (cart[itemId].active) {
+                lineEl.style.display = 'flex';
+                // Small delay to allow display:flex to apply before transitioning opacity
+                setTimeout(() => lineEl.style.opacity = '1', 10);
+            } else {
+                lineEl.style.opacity = '0';
+                setTimeout(() => lineEl.style.display = 'none', 300);
+            }
+
+            // Calculate Totals
+            let totalOneTime = 0;
+            let totalMonthly = 0;
+            let activeCount = 0;
+            
+            for (const key in cart) {
+                if (cart[key].active) {
+                    if (cart[key].type === 'monthly') {
+                        totalMonthly += cart[key].price;
+                    } else {
+                        totalOneTime += cart[key].price;
+                    }
+                    activeCount++;
+                }
+            }
+
+            // Update Total UI
+            document.getElementById('total-price').innerText = formatMoney(totalOneTime);
+            
+            const monthlyContainer = document.getElementById('monthly-recurring-container');
+            const monthlyPrice = document.getElementById('monthly-price');
+            
+            if (totalMonthly > 0) {
+                monthlyContainer.classList.remove('hidden');
+                monthlyPrice.innerText = formatMoney(totalMonthly) + '/mo';
+            } else {
+                monthlyContainer.classList.add('hidden');
+            }
+
+            // Handle Empty State & Button State
+            const btn = document.getElementById('checkout-btn');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (activeCount === 0) {
+                emptyState.style.display = 'block';
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+                btn.innerText = 'Select a module to continue';
+            } else {
+                emptyState.style.display = 'none';
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                btn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2H9v2H7v-2H5.5C4.67 15 4 14.33 4 13.5v-3C4 9.67 4.67 9 5.5 9H9V7h2v2h2v2H9v2h2.5c.83 0 1.5.67 1.5 1.5v3c0 .83-.67 1.5-1.5 1.5H11z"/></svg> Checkout via Stripe`;
+            }
+        }
+
+        // Dummy Checkout Handler
+        function processCheckout() {
+            let selectedItems = [];
+            let oneTime = 0;
+            let monthly = 0;
+            for (const key in cart) {
+                if (cart[key].active) {
+                    selectedItems.push(key);
+                    if (cart[key].type === 'monthly') monthly += cart[key].price;
+                    else oneTime += cart[key].price;
+                }
+            }
+            alert(`Redirecting to Stripe Checkout...\n\nItems: ${selectedItems.join(', ')}\nTotal Due Today: $${oneTime}\nMonthly Recurring: $${monthly}/mo`);
+        }
+    </script>
+
+</body>
+</html>
