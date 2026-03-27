@@ -76,6 +76,9 @@
         .not-selected .check-icon { background-color: #F1F5F9; border-color: #CBD5E1; }
         .not-selected .check-svg { opacity: 0; transform: scale(0.5); }
         
+        /* Force white text in dark pillar section */
+        .pillar-dark p, .pillar-dark strong, .pillar-dark span { color: inherit; }
+
         /* Letter typography */
         .sales-letter p { margin-bottom: 1.5rem; }
         .highlight-text { background-color: rgba(0, 229, 255, 0.15); font-weight: 700; padding: 0 4px; border-radius: 2px; }
@@ -247,7 +250,7 @@
     </section>
 
     <!-- Three Pillars -->
-    <section class="py-16 relative z-20" style="background-color: #0A1628;">
+    <section class="py-16 relative z-20" style="background-color: #0A1628; color: #FFFFFF !important;">
         <div class="container mx-auto px-4 max-w-5xl">
             <p class="text-3xl md:text-4xl font-heading font-black text-white text-center leading-tight mb-12">This infrastructure is designed to do three things flawlessly:</p>
 
