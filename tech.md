@@ -86,11 +86,30 @@ The transition to `scheduled` calls the Buffer API and stores `buffer_id`.
 - Use the latest Claude model; keep prompts and the bucket rules in a shared
   system prompt so the "repo only" guard is always applied.
 
-### Image generation
-- `/api/image`: take the image prompt and produce a branded image (navy
-  `#0A1E3D`, red `#B33A34`, soft blue `#E8F1FA`). Start manual (operator uploads
-  or designs), then add an image model. Store the result and link it to the
-  content item.
+### Images (source or generate)
+`/api/image` handles both paths and always returns an asset at the right size:
+
+- **Source:** search a brand image library, the Pro Wash Google Drive, approved
+  customer photos, or a stock provider (e.g. Pexels/Unsplash API) by keyword.
+- **Generate:** when nothing fits, build a **sized photo prompt** and call an
+  image model. The function takes `{ channel, format }`, maps it to the target
+  dimensions and aspect ratio, and injects the brand palette (navy `#0A1E3D`,
+  red `#B33A34`, soft blue `#E8F1FA`) into the prompt.
+
+Channel size map (used to build the prompt and crop the output):
+
+```
+feed        1080x1080  1:1
+reel/story  1080x1920  9:16
+portrait    1080x1350  4:5
+yt_thumb    1280x720   16:9
+gmb         1200x900   4:3
+```
+
+Store the result (Vercel Blob or the monthly Drive folder) and link it to the
+content item. The operator can swap a generated image for a real one before
+approval. Start manual (upload only), add stock search next, then the image
+model.
 
 ### Google Drive (video)
 - OAuth to a Pro Wash Drive. Finished video lives in dated monthly folders.
@@ -101,6 +120,14 @@ The transition to `scheduled` calls the Buffer API and stores `buffer_id`.
 - `/api/buffer`: create drafts in the right Buffer channel with the per-channel
   caption, hashtags, and asset. Never auto-publish. Store `buffer_id`.
 - GMB posts can be location-aware (one per location) using the five addresses.
+
+### Stats (interesting-stats format)
+- `/api/create` can output an **interesting-stats** post for any bucket (mostly
+  Vehicle, Surveys & Debates, and searchable SEO angles).
+- Every stat must be real and carry a source. Store `stat_value`, `stat_source`,
+  and `stat_source_url` on the content item; reject a stats post with no source.
+- Optional `stats_facts` table holds vetted, reusable stats (value, source, url,
+  topic) so the generator pulls from approved facts instead of inventing numbers.
 
 ### Metrics
 - `/api/metrics`: pull engagement and reach (from Buffer analytics or the

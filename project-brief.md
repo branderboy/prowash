@@ -39,10 +39,10 @@ the method; this platform runs it.
 
 1. **Generate ideas.** Pull a batch per bucket (default 10 each, more on demand).
 2. **Add research.** Drop in owner notes, trends, customer stories, BOF angles.
-3. **Create content.** For each idea: hook, caption, CTA, hashtags, image prompt
-   or generated image, and a video prompt where it applies.
-4. **Attach assets.** Link or upload finished video to Google Drive; attach
-   images.
+3. **Create content.** For each idea: hook, caption, CTA, hashtags, the image
+   (sourced or generated), and a video prompt where it applies.
+4. **Attach assets.** Link or upload finished video to Google Drive; source or
+   generate the image at the right size for the channel.
 5. **Build the month.** Lay the approved items onto a monthly calendar with a
    posting cadence per channel.
 6. **Send to Buffer.** Push scheduled items to Buffer as drafts, formatted per
@@ -74,6 +74,55 @@ YouTube, and Google. Reference titles:
 - I finally found my car wash.
 - This is my go-to car wash.
 - Don't sleep on this spot.
+
+## Images
+
+Every post needs the right visual at the right size. The platform does this two
+ways:
+
+- **Source it.** Pull from a brand image library, the Pro Wash Google Drive,
+  approved customer photos, or a stock provider. Good for real cars, locations,
+  and the crew.
+- **Create it.** When no real photo fits, the platform builds a **photo prompt**
+  sized for the channel and generates the image. The prompt includes the format,
+  aspect ratio, and brand colors (navy `#0A1E3D`, red `#B33A34`, soft blue
+  `#E8F1FA`).
+
+Channel sizes the prompt targets:
+
+| Use | Size | Ratio |
+|---|---|---|
+| Instagram / Facebook feed | 1080 x 1080 | 1:1 |
+| Reels / Stories / TikTok | 1080 x 1920 | 9:16 |
+| Instagram portrait | 1080 x 1350 | 4:5 |
+| YouTube thumbnail | 1280 x 720 | 16:9 |
+| Google Business post | 1200 x 900 | 4:3 |
+
+The operator can always swap a generated image for a real one before approval.
+
+## Content formats
+
+Buckets are the strategy. Formats are how a post is shaped. The generator can
+produce any idea in a format that fits the bucket:
+
+- **Text card** (point at the text), **carousel**, **reel**, **poll / debate**,
+  **customer spotlight**, **how-to / educational**, and **interesting stats**.
+
+### Interesting Stats
+
+Short, surprising, shareable stats that pull saves and comments. They live mostly
+in The Vehicle and Surveys & Debates, and the searchable ones support SEO. Every
+stat must be real and sourced. No made-up numbers.
+
+Examples of the angle:
+
+- The average American spends around 17,600 minutes driving a year.
+- A steering wheel can hold more bacteria than a public toilet seat.
+- A clean, well-kept car can hold noticeably more resale value than a neglected one.
+- Prince George's County has hundreds of thousands of registered vehicles.
+
+Rules: cite a real source, keep one stat per post, and pair it with a hook and a
+question to drive comments. If a stat can't be sourced, it doesn't ship.
 
 ## The one rule (transactional)
 
