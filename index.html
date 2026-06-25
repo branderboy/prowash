@@ -63,6 +63,18 @@
     .btn-primary { background: var(--navy); color: #fff; }
     .btn-ghost { background: var(--bg-soft); color: var(--ink); border: 1px solid var(--line); }
 
+    /* Direct-response impact button */
+    .btn-impact {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--brand); color: #fff; text-decoration: none;
+      padding: 16px 34px; border-radius: 8px;
+      font-weight: 800; font-size: 1.02rem; text-transform: uppercase; letter-spacing: .03em;
+      box-shadow: 0 4px 0 var(--brand-deep);
+      transition: transform .1s ease, box-shadow .1s ease;
+    }
+    .btn-impact:hover, .btn-impact:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--brand-deep); }
+    .btn-impact.full { display: flex; width: 100%; }
+
     /* Hero */
     .hero { padding: 60px 0 50px; text-align: center; }
     .hero-logo { height: 120px; width: auto; margin: 0 auto 28px; display: block; }
@@ -127,7 +139,6 @@
     .posts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; }
     .post { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
     .post-head { display: flex; align-items: center; gap: 10px; padding: 13px 14px; }
-    .reel-tag { margin-left: auto; font-size: .62rem; font-weight: 800; letter-spacing: .05em; color: var(--brand); border: 1px solid var(--tint-line); background: var(--tint); padding: 3px 8px; border-radius: 6px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: .68rem; font-weight: 800; }
     .handle { font-weight: 700; font-size: .85rem; }
     .handle span { display: block; font-weight: 500; font-size: .72rem; color: var(--ink-soft); }
@@ -156,22 +167,39 @@
     .stat b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -.03em; color: var(--brand); }
     .stat span { font-size: .85rem; color: var(--ink-soft); font-weight: 600; }
 
-    /* Pricing */
-    .price-card { margin-top: 34px; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 44px; box-shadow: var(--shadow); text-align: center; }
-    .price-card .amount { font-size: clamp(2.8rem, 8vw, 4.2rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
-    .price-card .amount small { font-size: 1.05rem; font-weight: 600; color: var(--ink-soft); }
-    .price-card .setup { display: inline-block; margin-top: 12px; background: var(--tint); border: 1px solid var(--tint-line); color: var(--brand-deep); padding: 7px 16px; border-radius: 999px; font-size: .9rem; font-weight: 700; }
-    .price-card .copy { max-width: 50ch; margin: 16px auto 0; color: var(--ink-soft); }
-    .price-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 24px; }
-    .price-points span { background: var(--bg-soft); border: 1px solid var(--line); padding: 8px 15px; border-radius: 999px; font-size: .88rem; font-weight: 600; }
-    .price-card .btn { margin-top: 28px; }
-
     /* Closing */
     .closing { text-align: center; padding: 66px 0 26px; }
     .closing blockquote { font-size: clamp(1.4rem, 3.6vw, 2rem); font-weight: 800; letter-spacing: -.03em; max-width: 22ch; margin: 0 auto; line-height: 1.2; }
     .closing p { margin: 18px auto 0; color: var(--ink-soft); max-width: 52ch; font-size: 1.05rem; }
 
     footer { border-top: 1px solid var(--line); padding: 28px 0; text-align: center; color: var(--ink-soft); font-size: .85rem; }
+
+    /* Example post label bar + square media + poll (from reference) */
+    .post-label { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); background: var(--bg-soft); padding: 8px 14px; border-bottom: 1px solid var(--line); }
+    .post-label.reel { background: var(--brand); color: #fff; border-bottom: none; }
+    .post-media { aspect-ratio: 1 / 1; padding: 22px; min-height: 0; justify-content: center; text-align: center; }
+    .post-media p { font-size: 1.15rem; }
+    .post-media.navy { background: var(--navy); color: #fff; flex-direction: column; gap: 7px; align-items: stretch; justify-content: center; }
+    .post-media.navy .poll-q { font-weight: 800; text-align: center; margin-bottom: 6px; font-size: 1.05rem; }
+    .post-media.navy .opt { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); border-radius: 6px; padding: 7px; text-align: center; font-size: .82rem; font-weight: 600; }
+    .post-media.navy .opt.win { background: var(--brand); border-color: var(--brand); }
+
+    /* Investment / offer box */
+    .offer { max-width: 700px; margin: 32px auto 0; background: #fff; border: 4px solid var(--line); border-radius: 22px; padding: 44px; box-shadow: var(--shadow); text-align: center; }
+    .offer-intro { color: var(--ink-soft); max-width: 52ch; margin: 0 auto; }
+    .offer-intro b { color: var(--ink); }
+    .offer-price { padding: 30px 0; margin: 26px 0; border-bottom: 1px solid var(--line); }
+    .offer-price .amount { font-size: clamp(3.4rem, 11vw, 4.8rem); font-weight: 800; color: var(--brand); line-height: 1; letter-spacing: -.04em; }
+    .offer-price .amount .cur { font-size: 1.9rem; vertical-align: top; color: var(--silver); }
+    .offer-price .amount .per { display: block; font-size: 1rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .15em; font-weight: 700; margin-top: 10px; }
+    .offer-price .setup { margin-top: 16px; font-size: .82rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+    .offer-gains { text-align: left; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 22px; margin-bottom: 26px; }
+    .offer-gains .gains-title { font-weight: 700; margin-bottom: 12px; }
+    .gains-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; color: var(--ink-soft); font-size: .92rem; font-weight: 600; }
+    .gains-grid .span2 { grid-column: 1 / -1; }
+    .offer-rec { text-align: left; margin-bottom: 26px; }
+    .offer-rec h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .offer-rec p { color: var(--ink-soft); font-size: .92rem; }
 
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.in { opacity: 1; transform: none; }
@@ -183,7 +211,7 @@
       .prepared { grid-template-columns: 1fr; }
       .prepared > div + div { border-left: none; border-top: 1px solid var(--line); }
       .nav .cta { display: none; }
-      .price-card { padding: 32px 22px; }
+      .offer { padding: 32px 22px; }
     }
     @media (max-width: 520px) { .posts { grid-template-columns: 1fr; } }
   </style>
@@ -206,7 +234,7 @@
     <h1 class="reveal">Stay in front of customers <span class="hl">every week</span>, not just when they need a wash.</h1>
     <p class="sub reveal">Most local businesses go quiet between visits. We keep Pro Wash visible, build trust with the people who already know you, and reach the ones searching nearby.</p>
     <div class="hero-actions reveal">
-      <a class="btn btn-primary" href="#pricing">See pricing</a>
+      <a class="btn-impact" href="#pricing">See the pricing &amp; strategy</a>
       <a class="btn btn-ghost" href="#build">What we build</a>
     </div>
     <div class="prepared reveal">
@@ -314,12 +342,13 @@
       <div class="posts">
         <!-- Bucket 1: Lamond's Voice -->
         <div class="post reveal">
+          <div class="post-label">Bucket 01 · Lamond's Voice</div>
           <div class="post-head">
             <div class="avatar">PW</div>
-            <div class="handle">prowashprotint<span>Lamond's Voice</span></div>
+            <div class="handle">prowashprotint</div>
           </div>
           <div class="post-media">
-            <p>The older I get, the more I respect consistency.</p>
+            <p>"The older I get, the more I respect consistency."</p>
           </div>
           <div class="post-actions">
             <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.2C.6 9 1.8 5.5 5 5.1c2-.3 3.6.9 4.5 2.3C10.4 6 12 4.8 14 5.1c3.2.4 4.4 3.9 3 6.7C19.5 16.3 12 21 12 21z"/></svg>
@@ -331,12 +360,13 @@
 
         <!-- Bucket 2: The Vehicle -->
         <div class="post reveal">
+          <div class="post-label">Bucket 02 · The Vehicle</div>
           <div class="post-head">
             <div class="avatar">PW</div>
-            <div class="handle">prowashprotint<span>The Vehicle</span></div>
+            <div class="handle">prowashprotint</div>
           </div>
-          <div class="post-media b">
-            <p>What was your first car?</p>
+          <div class="post-media navy" style="justify-content:center;">
+            <p style="text-align:center;">What was your first car?</p>
           </div>
           <div class="post-actions">
             <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.2C.6 9 1.8 5.5 5 5.1c2-.3 3.6.9 4.5 2.3C10.4 6 12 4.8 14 5.1c3.2.4 4.4 3.9 3 6.7C19.5 16.3 12 21 12 21z"/></svg>
@@ -348,9 +378,10 @@
 
         <!-- Bucket 3: Transactional -->
         <div class="post reveal">
+          <div class="post-label">Bucket 03 · Transactional</div>
           <div class="post-head">
             <div class="avatar">PW</div>
-            <div class="handle">prowashprotint<span>Transactional</span></div>
+            <div class="handle">prowashprotint</div>
           </div>
           <div class="post-media c">
             <p>8 stamps, and the 9th wash is on us. Lives right in your Apple Wallet.</p>
@@ -365,13 +396,17 @@
 
         <!-- Bucket 4: Surveys and Debates (Reel) -->
         <div class="post reveal">
+          <div class="post-label reel">Bucket 04 · Reel</div>
           <div class="post-head">
             <div class="avatar">PW</div>
-            <div class="handle">prowashprotint<span>Surveys and Debates</span></div>
-            <span class="reel-tag">REEL</span>
+            <div class="handle">prowashprotint</div>
           </div>
-          <div class="post-media d">
-            <p>How often do you wash your car?<br><br>A. Every week<br>B. Twice a month<br>C. Once a month<br>D. When God washes it</p>
+          <div class="post-media navy">
+            <p class="poll-q">How often do you wash your car?</p>
+            <div class="opt">A. Every week</div>
+            <div class="opt">B. Twice a month</div>
+            <div class="opt">C. Once a month</div>
+            <div class="opt win">D. When God washes it</div>
           </div>
           <div class="post-actions">
             <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.2C.6 9 1.8 5.5 5 5.1c2-.3 3.6.9 4.5 2.3C10.4 6 12 4.8 14 5.1c3.2.4 4.4 3.9 3 6.7C19.5 16.3 12 21 12 21z"/></svg>
@@ -462,24 +497,35 @@
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- INVESTMENT / OFFER -->
   <section class="block wrap" id="pricing">
-    <span class="eyebrow reveal">The investment</span>
-    <h2 class="title reveal">Why $500 makes sense.</h2>
-    <p class="lead reveal">One new regular customer can be worth hundreds or thousands over time. The objective is not to create content. It is to grow the business behind it.</p>
+    <h2 class="title reveal" style="margin:0 auto;text-align:center;max-width:none;">Your investment today</h2>
 
-    <div class="price-card reveal">
-      <div class="amount">$500<small> per month</small></div>
-      <div class="setup">Plus a $350 one time setup fee</div>
-      <p class="copy">For less than the cost of a single traditional ad campaign, Pro Wash gains a consistent presence every month.</p>
-      <div class="price-points">
-        <span>More customer lifetime value</span>
-        <span>More retention</span>
-        <span>More referrals</span>
-        <span>More visibility</span>
-        <span>More repeat business</span>
+    <div class="offer reveal">
+      <p class="offer-intro"><b>One new regular customer can be worth hundreds or thousands over time.</b> The objective is not to create content. It is to grow the business behind it.</p>
+
+      <div class="offer-price">
+        <div class="amount"><span class="cur">$</span>500<span class="per">/ month</span></div>
+        <p class="setup">+ $350 one-time setup fee</p>
       </div>
-      <a class="btn btn-primary" href="#close">Approve a 90 day engagement</a>
+
+      <div class="offer-gains">
+        <p class="gains-title">For less than the cost of a single ad campaign, Pro Wash gains:</p>
+        <div class="gains-grid">
+          <div>+ More lifetime value</div>
+          <div>+ More retention</div>
+          <div>+ More referrals</div>
+          <div>+ More visibility</div>
+          <div class="span2">+ More repeat business</div>
+        </div>
+      </div>
+
+      <div class="offer-rec">
+        <h3>The recommendation</h3>
+        <p>Approve a 90 day engagement. Three months is enough time to build audience habits, lift engagement, drive loyalty signups, and strengthen relationships.</p>
+      </div>
+
+      <a class="btn-impact full" href="#pricing">Yes, let's get started</a>
     </div>
   </section>
 
@@ -489,7 +535,7 @@
     <blockquote class="reveal">The businesses people remember are the businesses people choose.</blockquote>
     <p class="reveal">Approve a 90 day engagement. Three months is enough time to build audience habits, lift engagement, drive loyalty signups, and strengthen relationships, so Pro Wash stays in front of customers every week.</p>
     <div class="hero-actions reveal" style="margin-top:28px;">
-      <a class="btn btn-primary" href="#pricing">Get started, $500 per month</a>
+      <a class="btn-impact" href="#pricing">Get started, $500 per month</a>
     </div>
   </section>
 
