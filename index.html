@@ -224,6 +224,12 @@
     }
     .price-card .amount { font-size: clamp(3rem, 9vw, 4.6rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
     .price-card .amount small { font-size: 1.1rem; font-weight: 600; color: #aab8d4; letter-spacing: 0; }
+    .price-card .setup-fee {
+      display: inline-block; margin-top: 14px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+      padding: 7px 16px; border-radius: 999px;
+      font-size: .92rem; font-weight: 700; color: var(--accent);
+    }
     .price-card .copy { max-width: 52ch; margin: 18px auto 0; color: #c4d0e6; }
     .price-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 26px; }
     .price-points span {
@@ -464,6 +470,7 @@
 
     <div class="price-card reveal">
       <div class="amount">$500<small> / month</small></div>
+      <div class="setup-fee">+ $350 one-time setup fee</div>
       <p class="copy">For less than the cost of a single traditional ad campaign, Pro Wash gains a consistent, strategic presence every single month.</p>
       <div class="price-points">
         <span>↑ Customer lifetime value</span>
