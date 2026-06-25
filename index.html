@@ -140,7 +140,10 @@
     .bucket .goal { margin-top: 14px; font-weight: 700; font-size: .9rem; color: var(--ink); }
 
     /* Example posts — single-post swipe carousel */
-    .carousel { width: min(380px, 86vw); margin: 24px auto 0; }
+    .feed-layout { display: grid; grid-template-columns: 1fr minmax(0, 460px); gap: 54px; align-items: center; }
+    .feed-copy { text-align: left; }
+    .feed-copy .lead { margin-top: 14px; }
+    .carousel { width: 100%; max-width: 460px; margin: 0 auto; min-width: 0; }
     .car-viewport { position: relative; }
     .posts { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-radius: 14px; box-shadow: var(--shadow-lg); }
     .posts::-webkit-scrollbar { display: none; }
@@ -248,7 +251,8 @@
 
     @media (max-width: 980px) { .buckets { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 860px) {
-      .split, .deliver, .plans { grid-template-columns: 1fr; }
+      .split, .deliver, .plans, .feed-layout { grid-template-columns: 1fr; }
+      .feed-layout { gap: 26px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .prepared { grid-template-columns: 1fr; }
       .prepared > div + div { border-left: none; border-top: 1px solid var(--line); }
@@ -387,9 +391,12 @@
   <!-- EXAMPLE POSTS -->
   <section class="block soft">
     <div class="wrap">
-      <span class="eyebrow reveal">Example posts</span>
-      <h2 class="title reveal">Here Is What It Looks Like In The Feed.</h2>
-      <p class="lead reveal">One real post from each bucket. Written in Lamond's voice and built for engagement.</p>
+     <div class="feed-layout">
+      <div class="feed-copy">
+        <span class="eyebrow reveal">Example posts</span>
+        <h2 class="title reveal">Here Is What It Looks Like In The Feed.</h2>
+        <p class="lead reveal">One real post from each bucket. Written in Lamond's voice and built for engagement. Swipe through all five.</p>
+      </div>
 
       <div class="carousel reveal">
        <div class="car-viewport">
@@ -497,6 +504,7 @@
        </div>
        <div class="dots" aria-hidden="true"></div>
       </div>
+     </div>
     </div>
   </section>
 
@@ -610,16 +618,16 @@
         <span class="rec-badge">Recommended</span>
         <span class="opt-name">Option 2</span>
         <h3>Social + SEO</h3>
-        <div class="price"><span class="cur">$</span>750–900<small> / month</small></div>
+        <div class="price"><span class="cur">$</span>750<small> / month</small></div>
         <p class="setup">+ $350 one-time setup</p>
         <ul>
           <li>Everything in Social, plus the SEO &amp; Discovery bucket</li>
-          <li>Adds YouTube and Google Business Profile</li>
+          <li>Adds YouTube and Google Business across 4 of your location profiles</li>
           <li>BOF-style videos that rank when locals search</li>
           <li>Gets Pro Wash found by new customers on TikTok, YouTube, and Google</li>
         </ul>
-        <a class="btn-impact full" href="https://paypal.me/presstochango" target="_blank" rel="noopener">Start With Social + SEO</a>
-        <p class="plan-note">Secure checkout via PayPal · enter your agreed amount</p>
+        <a class="btn-impact full" href="https://paypal.me/presstochango/1100" target="_blank" rel="noopener">Start With Social + SEO</a>
+        <p class="plan-note">$1,100 to begin ($750 first month + $350 setup)</p>
       </div>
     </div>
 
