@@ -129,7 +129,7 @@
     ul.clean.neg li::before { background: var(--silver); }
 
     /* Buckets */
-    .buckets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
+    .buckets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
     .bucket { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease; }
     .bucket:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .bucket .num { font-size: 1.6rem; font-weight: 800; color: var(--brand); letter-spacing: -.02em; line-height: 1; }
@@ -139,10 +139,19 @@
     .tag { font-size: .78rem; font-weight: 600; background: var(--bg-soft); border: 1px solid var(--line); padding: 5px 11px; border-radius: 999px; color: var(--ink-soft); }
     .bucket .goal { margin-top: 14px; font-weight: 700; font-size: .9rem; color: var(--ink); }
 
-    /* Example posts */
-    .posts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; }
-    .post { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease; }
-    .post:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    /* Example posts — single-post swipe carousel */
+    .carousel { width: min(380px, 86vw); margin: 24px auto 0; }
+    .car-viewport { position: relative; }
+    .posts { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-radius: 14px; box-shadow: var(--shadow-lg); }
+    .posts::-webkit-scrollbar { display: none; }
+    .post { flex: 0 0 100%; scroll-snap-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+    .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow); display: grid; place-items: center; cursor: pointer; z-index: 2; color: var(--navy); }
+    .car-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.4; }
+    .car-btn.prev { left: -22px; } .car-btn.next { right: -22px; }
+    .car-btn:disabled { opacity: .3; cursor: default; }
+    .dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+    .dot { width: 9px; height: 9px; border-radius: 999px; background: #c2cbd9; border: none; cursor: pointer; padding: 0; transition: width .2s ease, background .2s ease; }
+    .dot.on { background: var(--brand); width: 24px; }
     .post-head { display: flex; align-items: center; gap: 10px; padding: 13px 14px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: .68rem; font-weight: 800; }
     .handle { font-weight: 700; font-size: .85rem; }
@@ -188,6 +197,10 @@
     .post-media.poll .poll-q { font-weight: 800; text-align: center; margin-bottom: 6px; font-size: 1.05rem; }
     .post-media.poll .opt { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 7px; text-align: center; font-size: .82rem; font-weight: 600; color: var(--ink-soft); }
     .post-media.poll .opt.win { border-color: var(--navy); color: var(--navy); font-weight: 800; }
+    .post-media.seo { background: var(--bg-soft); color: var(--ink); flex-direction: column; gap: 14px; justify-content: center; }
+    .post-media.seo .seo-search { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 9px 14px; font-size: .82rem; font-weight: 600; color: var(--ink-soft); text-align: left; }
+    .post-media.seo .seo-search svg { width: 15px; height: 15px; stroke: var(--ink-soft); fill: none; stroke-width: 2; flex: none; }
+    .post-media.seo p { font-size: 1.05rem; }
 
     /* Investment / offer box */
     .offer { max-width: 700px; margin: 32px auto 0; background: #fff; border: 4px solid var(--line); border-radius: 22px; padding: 44px; box-shadow: var(--shadow); text-align: center; }
@@ -206,6 +219,25 @@
     .offer-rec h3 { font-size: 1.15rem; margin-bottom: 6px; }
     .offer-rec p { color: var(--ink-soft); font-size: .92rem; }
 
+    /* Two-tier plans */
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; align-items: stretch; }
+    .plan { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 32px 30px; box-shadow: var(--shadow); display: flex; flex-direction: column; text-align: left; }
+    .plan.rec { border: 2px solid var(--brand); box-shadow: var(--shadow-lg); }
+    .rec-badge { position: absolute; top: -13px; left: 26px; background: var(--brand); color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 5px 13px; border-radius: 999px; }
+    .plan .opt-name { font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); }
+    .plan h3 { font-size: 1.45rem; margin: 3px 0 0; }
+    .plan .price { font-size: 2.7rem; font-weight: 800; color: var(--brand); letter-spacing: -.03em; margin-top: 14px; line-height: 1; }
+    .plan .price .cur { font-size: 1.3rem; vertical-align: top; color: var(--silver); }
+    .plan .price small { font-size: .9rem; color: var(--ink-soft); font-weight: 600; letter-spacing: 0; }
+    .plan .setup { font-size: .78rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .06em; margin-top: 8px; font-weight: 600; }
+    .plan ul { list-style: none; display: grid; gap: 11px; margin: 22px 0 26px; }
+    .plan ul li { display: flex; gap: 10px; align-items: flex-start; font-size: .94rem; }
+    .plan ul li::before { content: ""; flex: none; margin-top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--navy); }
+    .plan.rec ul li::before { background: var(--brand); }
+    .plan .btn-impact { margin-top: auto; }
+    .plan-note { margin-top: 12px; font-size: .78rem; color: var(--ink-soft); text-align: center; }
+    .rec-line { max-width: 60ch; margin: 28px auto 0; text-align: center; color: var(--ink-soft); font-weight: 600; }
+
     /* Funnel arrow cue */
     .flow-arrow { display: flex; justify-content: center; padding: 8px 0; }
     .flow-arrow svg { width: 48px; height: 48px; color: var(--brand); animation: bob 1.4s ease-in-out infinite; }
@@ -214,9 +246,9 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
-    @media (max-width: 980px) { .posts { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 980px) { .buckets { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 860px) {
-      .split, .buckets, .deliver { grid-template-columns: 1fr; }
+      .split, .deliver, .plans { grid-template-columns: 1fr; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .prepared { grid-template-columns: 1fr; }
       .prepared > div + div { border-left: none; border-top: 1px solid var(--line); }
@@ -224,7 +256,7 @@
       .nav-inner { justify-content: center; }
       .offer { padding: 32px 22px; }
     }
-    @media (max-width: 520px) { .posts { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .buckets { grid-template-columns: 1fr; } .car-btn { display: none; } }
   </style>
 </head>
 <body>
@@ -291,8 +323,8 @@
   <!-- WHAT WE'LL BUILD -->
   <section class="block wrap" id="build">
     <span class="eyebrow reveal">What we build</span>
-    <h2 class="title reveal">A Content System Built On Four Buckets.</h2>
-    <p class="lead reveal">People follow people, not logos. Each bucket does one job: build trust, start conversation, drive action, and reach new people.</p>
+    <h2 class="title reveal">A Content System Built On Five Buckets.</h2>
+    <p class="lead reveal">People follow people, not logos. Each bucket does one job: build trust, start conversation, drive action, reach new people, and get found in search.</p>
 
     <div class="buckets">
       <div class="bucket reveal">
@@ -338,6 +370,17 @@
         </div>
         <p class="goal">Expands visibility to new audiences.</p>
       </div>
+
+      <div class="bucket reveal">
+        <span class="num">BUCKET 05</span>
+        <h3>SEO &amp; Discovery</h3>
+        <p class="what">Searchable, BOF-style videos built to get found by new customers on TikTok, YouTube, and Google. One of the number one ways people discover a local business.</p>
+        <div class="tags">
+          <span class="tag">Best car wash in Bowie</span><span class="tag">Best in Prince George's County</span><span class="tag">This is my go-to car wash</span>
+          <span class="tag">Worth the drive</span><span class="tag">Here's where I get my car washed</span>
+        </div>
+        <p class="goal">Gets discovered by new customers searching.</p>
+      </div>
     </div>
   </section>
 
@@ -348,9 +391,12 @@
       <h2 class="title reveal">Here Is What It Looks Like In The Feed.</h2>
       <p class="lead reveal">One real post from each bucket. Written in Lamond's voice and built for engagement.</p>
 
-      <div class="posts">
+      <div class="carousel reveal">
+       <div class="car-viewport">
+        <button class="car-btn prev" type="button" aria-label="Previous post"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <div class="posts">
         <!-- Bucket 1: Lamond's Voice -->
-        <div class="post reveal">
+        <div class="post">
           <div class="post-label">Bucket 01 · Lamond's Voice</div>
           <div class="post-head">
             <div class="avatar">PW</div>
@@ -368,7 +414,7 @@
         </div>
 
         <!-- Bucket 2: The Vehicle -->
-        <div class="post reveal">
+        <div class="post">
           <div class="post-label">Bucket 02 · The Vehicle</div>
           <div class="post-head">
             <div class="avatar">PW</div>
@@ -386,7 +432,7 @@
         </div>
 
         <!-- Bucket 3: Transactional -->
-        <div class="post reveal">
+        <div class="post">
           <div class="post-label">Bucket 03 · Transactional</div>
           <div class="post-head">
             <div class="avatar">PW</div>
@@ -404,7 +450,7 @@
         </div>
 
         <!-- Bucket 4: Surveys and Debates (Reel) -->
-        <div class="post reveal">
+        <div class="post">
           <div class="post-label">Bucket 04 · Reel</div>
           <div class="post-head">
             <div class="avatar">PW</div>
@@ -424,6 +470,32 @@
           </div>
           <div class="post-cap"><b>prowashprotint</b> Comment your letter and tag a friend who never washes theirs. <span class="ht">#CarWashChallenge</span></div>
         </div>
+
+        <!-- Bucket 5: SEO & Discovery -->
+        <div class="post">
+          <div class="post-label">Bucket 05 · SEO</div>
+          <div class="post-head">
+            <div class="avatar">PW</div>
+            <div class="handle">prowashprotint</div>
+          </div>
+          <div class="post-media seo">
+            <div class="seo-search">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              best car wash in bowie
+            </div>
+            <p>"Best Place To Get A Car Wash In Bowie."</p>
+          </div>
+          <div class="post-actions">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.2C.6 9 1.8 5.5 5 5.1c2-.3 3.6.9 4.5 2.3C10.4 6 12 4.8 14 5.1c3.2.4 4.4 3.9 3 6.7C19.5 16.3 12 21 12 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L4 21l1.1-3.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.6-6.4L4 12z"/></svg>
+          </div>
+          <div class="post-cap"><b>prowashprotint</b> Real BOF-style videos that rank when locals search. <span class="ht">#CarWashNearMe</span> <span class="ht">#Bowie</span></div>
+        </div>
+        </div>
+        <button class="car-btn next" type="button" aria-label="Next post"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+       </div>
+       <div class="dots" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -482,16 +554,17 @@
             <span class="platform">Instagram</span>
             <span class="platform">Facebook</span>
             <span class="platform">X</span>
-            <span class="platform">Google Business Profile</span>
+            <span class="platform">YouTube + Google Business (Option 2)</span>
           </div>
         </div>
         <div class="panel now-box reveal">
           <h3>Estimated Monthly Output</h3>
           <ul class="clean">
-            <li>6 Lamond posts</li>
-            <li>5 Vehicle posts</li>
+            <li>5 Lamond posts</li>
+            <li>4 Vehicle posts</li>
             <li>4 Transactional posts</li>
-            <li>5 Survey and Debate posts</li>
+            <li>4 Survey and Debate posts</li>
+            <li>3 SEO and Discovery posts</li>
           </ul>
           <p class="punch">Up to 20 pieces of content every month.</p>
         </div>
@@ -499,8 +572,8 @@
 
       <div class="stats">
         <div class="stat reveal"><b>20</b><span>Posts per month</span></div>
-        <div class="stat reveal"><b>4</b><span>Platforms managed</span></div>
-        <div class="stat reveal"><b>4</b><span>Content buckets</span></div>
+        <div class="stat reveal"><b>3–5</b><span>Platforms managed</span></div>
+        <div class="stat reveal"><b>5</b><span>Content buckets</span></div>
         <div class="stat reveal"><b>1997</b><span>Trusted since</span></div>
       </div>
     </div>
@@ -512,24 +585,45 @@
 
   <!-- INVESTMENT / OFFER -->
   <section class="block wrap" id="pricing">
-    <h2 class="title reveal" style="margin:0 auto;text-align:center;max-width:none;">Your Investment Today</h2>
+    <h2 class="title reveal" style="margin:0 auto 6px;text-align:center;max-width:none;">Your Investment Today</h2>
+    <p class="lead reveal" style="margin-inline:auto;text-align:center;">One new regular customer can be worth hundreds or thousands over time. Pick the plan that fits where you want to grow.</p>
 
-    <div class="offer reveal">
-      <p class="offer-intro"><b>One new regular customer can be worth hundreds or thousands over time.</b> The objective is not to create content. It is to grow the business behind it.</p>
-
-      <div class="offer-price">
-        <div class="amount"><span class="cur">$</span>500<span class="per">/ month</span></div>
-        <p class="setup">+ $350 one-time setup fee</p>
+    <div class="plans">
+      <!-- Option 1 -->
+      <div class="plan reveal">
+        <span class="opt-name">Option 1</span>
+        <h3>Social</h3>
+        <div class="price"><span class="cur">$</span>500<small> / month</small></div>
+        <p class="setup">+ $350 one-time setup</p>
+        <ul>
+          <li>The four social buckets: Lamond, Vehicle, Transactional, Surveys &amp; Debates</li>
+          <li>Up to 20 posts a month</li>
+          <li>Instagram, Facebook, and X</li>
+          <li>Full planning, captions, and publishing</li>
+        </ul>
+        <a class="btn-impact blue full" href="https://paypal.me/presstochango/850" target="_blank" rel="noopener">Start With Social</a>
+        <p class="plan-note">$850 to begin ($500 first month + $350 setup)</p>
       </div>
 
-      <div class="offer-rec">
-        <h3>The Recommendation</h3>
-        <p>Approve a 90 day engagement. Three months is enough time to build audience habits, lift engagement, drive loyalty signups, and strengthen relationships.</p>
+      <!-- Option 2 (recommended) -->
+      <div class="plan rec reveal">
+        <span class="rec-badge">Recommended</span>
+        <span class="opt-name">Option 2</span>
+        <h3>Social + SEO</h3>
+        <div class="price"><span class="cur">$</span>750–900<small> / month</small></div>
+        <p class="setup">+ $350 one-time setup</p>
+        <ul>
+          <li>Everything in Social, plus the SEO &amp; Discovery bucket</li>
+          <li>Adds YouTube and Google Business Profile</li>
+          <li>BOF-style videos that rank when locals search</li>
+          <li>Gets Pro Wash found by new customers on TikTok, YouTube, and Google</li>
+        </ul>
+        <a class="btn-impact full" href="https://paypal.me/presstochango" target="_blank" rel="noopener">Start With Social + SEO</a>
+        <p class="plan-note">Secure checkout via PayPal · enter your agreed amount</p>
       </div>
-
-      <a class="btn-impact full" href="https://paypal.me/presstochango/850" target="_blank" rel="noopener">Yes, let's get started</a>
-      <p style="margin-top:14px;font-size:.82rem;color:var(--ink-soft);">Secure checkout via PayPal · $850 to begin ($500 first month + $350 setup)</p>
     </div>
+
+    <p class="rec-line reveal">We recommend Option 2. SEO is one of the number one ways new customers discover a local business on TikTok and YouTube.</p>
   </section>
 
   <footer>
@@ -544,6 +638,37 @@
       el.style.transitionDelay = (i % 5) * 55 + 'ms';
       io.observe(el);
     });
+
+    // Example-post swipe carousel
+    (function () {
+      const track = document.querySelector('.posts');
+      if (!track) return;
+      const slides = Array.from(track.children);
+      const dotsWrap = document.querySelector('.dots');
+      const prev = document.querySelector('.car-btn.prev');
+      const next = document.querySelector('.car-btn.next');
+
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' on' : '');
+        d.type = 'button';
+        d.setAttribute('aria-label', 'Go to post ' + (i + 1));
+        d.addEventListener('click', () => track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' }));
+        dotsWrap.appendChild(d);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function sync() {
+        const i = Math.round(track.scrollLeft / track.clientWidth);
+        dots.forEach((d, j) => d.classList.toggle('on', j === i));
+        if (prev) prev.disabled = i === 0;
+        if (next) next.disabled = i === slides.length - 1;
+      }
+      track.addEventListener('scroll', () => window.requestAnimationFrame(sync), { passive: true });
+      if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' }));
+      if (next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' }));
+      sync();
+    })();
   </script>
 </body>
 </html>
