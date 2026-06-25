@@ -107,6 +107,10 @@
     ul.clean li { display: flex; gap: 11px; align-items: flex-start; }
     ul.clean li::before { content: ""; flex: none; margin-top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
     .panel .punch { margin-top: 16px; font-weight: 700; }
+    .ba-label { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 5px 13px; border-radius: 999px; margin-bottom: 14px; }
+    .ba-label.before { background: #fdecec; color: var(--brand-deep); border: 1px solid #f4d3d3; }
+    .ba-label.now { background: var(--tint); color: var(--navy); border: 1px solid var(--tint-line); }
+    ul.clean.neg li::before { background: var(--silver); }
 
     /* Buckets */
     .buckets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
@@ -220,23 +224,25 @@
 
       <div class="split">
         <div class="panel reveal">
-          <h3>Where customers already are</h3>
-          <p class="muted">Social media is where people spend their time and decide who to trust.</p>
-          <ul class="clean">
-            <li>They spend their time there every day</li>
-            <li>They discover local businesses</li>
-            <li>They ask friends for recommendations</li>
-            <li>They build trust before spending money</li>
+          <span class="ba-label before">Before</span>
+          <h3>Quiet between visits</h3>
+          <p class="muted">Pro Wash goes silent after a customer drives off, and the gap does the damage.</p>
+          <ul class="clean neg">
+            <li>Customers forget after 30, 60, or 90 days</li>
+            <li>The next convenient car wash wins</li>
+            <li>An inactive page creates doubt</li>
+            <li>Out of sight, out of mind</li>
           </ul>
         </div>
         <div class="panel tint reveal">
-          <h3>What Pro Wash already has</h3>
-          <p class="muted">Most car washes post cars. Very few build relationships, and that is the opening.</p>
+          <span class="ba-label now">Now</span>
+          <h3>Visible every week</h3>
+          <p class="muted">With a steady presence, Pro Wash stays in front of the people who already know you and the ones searching nearby.</p>
           <ul class="clean">
-            <li>Established since 1997</li>
-            <li>Multiple locations</li>
-            <li>Loyal customers and a strong reputation</li>
-            <li>A real owner with a real story</li>
+            <li>Pro Wash stays top of mind</li>
+            <li>Customers remember and come back</li>
+            <li>An active page builds confidence</li>
+            <li>You become part of the daily conversation</li>
           </ul>
           <p class="punch">That is where the opportunity is.</p>
         </div>
