@@ -11,19 +11,20 @@
   <style>
     :root {
       --ink: #0a1e3d;
-      --ink-soft: #5a6577;
-      --line: #e6eaf1;
+      --ink-soft: #45505f;
+      --line: #cdd5e3;
       --bg: #ffffff;
-      --bg-soft: #f4f7fc;
+      --bg-soft: #e7edf7;
       --card: #ffffff;
       --navy: #16345f;
       --navy-deep: #0a1e3d;
       --brand: #ce1126;
       --brand-deep: #a50f20;
       --tint: #eaf1fb;
-      --tint-line: #d2e1f3;
+      --tint-line: #c9dcf0;
       --silver: #aab4c2;
-      --shadow: 0 14px 40px -26px rgba(10, 30, 61, .28);
+      --shadow: 0 10px 28px -12px rgba(10, 30, 61, .22), 0 2px 6px -2px rgba(10, 30, 61, .10);
+      --shadow-lg: 0 22px 48px -18px rgba(10, 30, 61, .32), 0 4px 12px -4px rgba(10, 30, 61, .12);
       --radius: 16px;
     }
 
@@ -105,11 +106,11 @@
     .prepared strong { font-size: 1.25rem; letter-spacing: -.01em; }
 
     /* Section scaffolding */
-    section.block { padding: 54px 0; }
+    section.block { padding: 60px 0; }
     section.block.soft { background: var(--bg-soft); border-block: 1px solid var(--line); }
-    .eyebrow { display: block; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); margin-bottom: 12px; }
-    h2.title { font-size: clamp(1.6rem, 3.6vw, 2.2rem); letter-spacing: -.03em; line-height: 1.15; font-weight: 800; max-width: 24ch; }
-    .lead { margin-top: 14px; max-width: 58ch; color: var(--ink-soft); font-size: 1.05rem; }
+    .eyebrow { display: inline-block; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fff; background: var(--brand); padding: 5px 12px; border-radius: 6px; margin-bottom: 14px; }
+    h2.title { font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -.03em; line-height: 1.12; font-weight: 800; max-width: 24ch; }
+    .lead { margin-top: 14px; max-width: 58ch; color: var(--ink-soft); font-size: 1.08rem; }
 
     /* Split panels */
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 34px; }
@@ -129,8 +130,9 @@
 
     /* Buckets */
     .buckets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 34px; }
-    .bucket { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
-    .bucket .num { font-size: .76rem; font-weight: 800; color: var(--brand); letter-spacing: .08em; }
+    .bucket { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease; }
+    .bucket:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .bucket .num { font-size: 1.6rem; font-weight: 800; color: var(--brand); letter-spacing: -.02em; line-height: 1; }
     .bucket h3 { font-size: 1.2rem; margin: 5px 0 9px; letter-spacing: -.02em; }
     .bucket p.what { color: var(--ink-soft); margin-bottom: 14px; font-size: .96rem; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -139,7 +141,8 @@
 
     /* Example posts */
     .posts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; }
-    .post { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+    .post { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease; }
+    .post:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .post-head { display: flex; align-items: center; gap: 10px; padding: 13px 14px; }
     .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-size: .68rem; font-weight: 800; }
     .handle { font-weight: 700; font-size: .85rem; }
@@ -202,6 +205,11 @@
     .offer-rec { text-align: left; margin-bottom: 26px; }
     .offer-rec h3 { font-size: 1.15rem; margin-bottom: 6px; }
     .offer-rec p { color: var(--ink-soft); font-size: .92rem; }
+
+    /* Funnel arrow cue */
+    .flow-arrow { display: flex; justify-content: center; padding: 8px 0; }
+    .flow-arrow svg { width: 48px; height: 48px; color: var(--brand); animation: bob 1.4s ease-in-out infinite; }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
 
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
     .reveal.in { opacity: 1; transform: none; }
@@ -498,6 +506,10 @@
       </div>
     </div>
   </section>
+
+  <div class="flow-arrow" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
 
   <!-- INVESTMENT / OFFER -->
   <section class="block wrap" id="pricing">
